@@ -3,6 +3,7 @@ package edu.hitsz.application;
 import edu.hitsz.aircraft.*;
 import edu.hitsz.bullet.BaseBullet;
 import edu.hitsz.basic.AbstractFlyingObject;
+import edu.hitsz.item.BaseItem;
 import edu.hitsz.item.Blood;
 import edu.hitsz.item.Bomb;
 import edu.hitsz.item.Fire;
@@ -38,7 +39,7 @@ public class Game extends JPanel {
     private final List<AbstractAircraft> enemyAircrafts;
     private final List<BaseBullet> heroBullets;
     private final List<BaseBullet> enemyBullets;
-    private final List<AbstractFlyingObject> items;
+    private final List<BaseItem> items;
 
     /**
      * 屏幕中出现的敌机最大数量
@@ -63,7 +64,7 @@ public class Game extends JPanel {
 
     private int Hero_Hp = 100;
     private int Mob_Hp = 30;
-    private int Elite_Hp = 50;
+    private int Elite_Hp = 30;
 
 
 
@@ -278,16 +279,16 @@ public class Game extends JPanel {
         }
 
         // Todo: 我方获得道具，道具生效
-        for(AbstractFlyingObject item : items){
+        for(BaseItem item : items){
             if(heroAircraft.crash(item)){
                 if(item instanceof Blood blood){
-                    blood.work(heroAircraft);
+                    item.work(heroAircraft);
                 }
                 else if(item instanceof Bomb bomb){
-                    System.out.println("FireSupply active!");
+                    item.work(heroAircraft);
                 }
                 else if(item instanceof Fire fire){
-                    System.out.println("BombSupply active!");
+                    item.work(heroAircraft);
                 }
                 item.vanish();
             }

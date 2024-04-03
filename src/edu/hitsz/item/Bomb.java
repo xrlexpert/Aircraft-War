@@ -3,7 +3,7 @@ package edu.hitsz.item;
 import edu.hitsz.application.Main;
 import edu.hitsz.basic.AbstractFlyingObject;
 
-public class Bomb extends Item {
+public class Bomb extends BaseItem {
     public Bomb(int locationX, int locationY, int speedX, int speedY){
         super(locationX, locationY, speedX, speedY);
     }
@@ -17,6 +17,6 @@ public class Bomb extends Item {
 
     @Override
     public void work(AbstractFlyingObject flyingObject) {
-
+        System.out.println("BombSupply active!");
     }
 }

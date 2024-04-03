@@ -79,7 +79,7 @@ class EnemyBullet {
     + EnemyBullet(int locationX, int locationY,
      int speedX, int speedY, int power)
 }
-abstract class Item{
+abstract class BaseItem{
     + {abstract}work(AbstractFlyingObject flyingObject):void;
 }
 
@@ -93,7 +93,7 @@ class Bomb{
     + work(AbstractFlyingObject flyingObject):void;
 }
 class Fire{
-    + Bomb(int locationX, int locationY, int speedX, int speedY);
+    + Fire(int locationX, int locationY, int speedX, int speedY);
     + work(AbstractFlyingObject flyingObject):void;
 }
 
@@ -103,10 +103,11 @@ BaseBullet <|-- EnemyBullet
 
 AbstractFlyingObject <|-- AbstractAircraft
 AbstractFlyingObject <|-- BaseBullet
-AbstractFlyingObject <|-- Item
-Item <|-- Blood
-Item <|-- Bomb
-Item <|-- Fire
+AbstractFlyingObject <|-- BaseItem
+
+BaseItem <|-- Blood
+BaseItem <|-- Bomb
+BaseItem <|-- Fire
 
 
 @enduml
