@@ -28,22 +28,22 @@ AircraftFactory <|.. EliteEnemyFactory
 AircraftFactory <|.. MobEnemyFactory
 AbstractAircraft <.. AircraftFactory
 
-abstract class Item{
+abstract class BaseItem{
     + Item(int locationX, int locationY, int speedX, int speedY){
             super(locationX, locationY, speedX, speedY)
     + {abstract} work():void;
 }
 interface ItemFactory{
-    + createItem():Item;
+    + createItem():BaseItem;
 }
 class BloodFactory{
-    + createItem():Item;
+    + createItem():BaseItem;
 }
 class BombFactory{
-    + createItem():Item;
+    + createItem():BaseItem;
 }
 class FireFactory{
-    + createItem():Item;
+    + createItem():BaseItem;
 }
 class Blood{
     + work():void;
@@ -54,10 +54,10 @@ class Bomb{
 class Fire{
     + work():void;
 }
-Item <.. ItemFactory
-Item <|-- Blood
-Item <|-- Bomb
-Item <|-- Fire
+BaseItem <.. ItemFactory
+BaseItem <|-- Blood
+BaseItem <|-- Bomb
+BaseItem <|-- Fire
 ItemFactory <|.. BloodFactory
 ItemFactory <|.. BombFactory
 ItemFactory <|.. FireFactory

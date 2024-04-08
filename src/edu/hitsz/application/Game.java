@@ -9,7 +9,7 @@ import edu.hitsz.aircraft.factory.MobEnemyFactory;
 import edu.hitsz.item.Blood;
 import edu.hitsz.item.Bomb;
 import edu.hitsz.item.Fire;
-import edu.hitsz.item.Item;
+import edu.hitsz.item.BaseItem;
 import edu.hitsz.item.factory.BloodFactory;
 import edu.hitsz.item.factory.BombFactory;
 import edu.hitsz.item.factory.FireFactory;
@@ -46,7 +46,7 @@ public class Game extends JPanel {
     private final List<AbstractAircraft> enemyAircrafts;
     private final List<BaseBullet> heroBullets;
     private final List<BaseBullet> enemyBullets;
-    private final List<Item> items;
+    private final List<BaseItem> items;
 
     /**
      * 屏幕中出现的敌机最大数量
@@ -249,7 +249,7 @@ public class Game extends JPanel {
                         if(enemyAircraft instanceof EliteEnemy){
                             Random rand = new Random();
                             int randomNum = rand.nextInt(100);
-                            Item item;
+                            BaseItem item;
                             ItemFactory factory;
                             if(randomNum < 30){
                                 factory = new BloodFactory();
@@ -281,7 +281,7 @@ public class Game extends JPanel {
         }
 
         // Todo: 我方获得道具，道具生效
-        for(Item item : items){
+        for(BaseItem item : items){
             if(heroAircraft.crash(item)){
                 item.work(heroAircraft);
                 item.vanish();
