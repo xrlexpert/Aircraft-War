@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/Factory_Pattern.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/Factory_Pattern.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uml/Singleton.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/Singleton.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
