@@ -20,9 +20,7 @@ public class Blood extends Item {
         }
     }
     @Override
-    public void work(AbstractFlyingObject flyingObject){
-        if(flyingObject instanceof HeroAircraft heroAircraft) {
-            heroAircraft.increaseHp(Heal_HP);
-        }
+    public void work(HeroAircraft heroAircraft){
+        heroAircraft.increaseHp(Heal_HP);
     }
 }

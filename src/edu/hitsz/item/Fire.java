@@ -1,5 +1,6 @@
 package edu.hitsz.item;
 
+import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.application.Main;
 import edu.hitsz.basic.AbstractFlyingObject;
 
@@ -16,7 +17,7 @@ public class Fire extends Item {
     }
 
     @Override
-    public void work(AbstractFlyingObject flyingObject) {
-
+    public void work(HeroAircraft heroAircraft) {
+            System.out.println("FireSupply active!");
     }
 }

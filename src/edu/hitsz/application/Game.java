@@ -3,9 +3,17 @@ package edu.hitsz.application;
 import edu.hitsz.aircraft.*;
 import edu.hitsz.bullet.BaseBullet;
 import edu.hitsz.basic.AbstractFlyingObject;
+import edu.hitsz.aircraft.factory.AircraftFactory;
+import edu.hitsz.aircraft.factory.EliteEnemyFactory;
+import edu.hitsz.aircraft.factory.MobEnemyFactory;
 import edu.hitsz.item.Blood;
 import edu.hitsz.item.Bomb;
 import edu.hitsz.item.Fire;
+import edu.hitsz.item.Item;
+import edu.hitsz.item.factory.BloodFactory;
+import edu.hitsz.item.factory.BombFactory;
+import edu.hitsz.item.factory.FireFactory;
+import edu.hitsz.item.factory.ItemFactory;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 
 import javax.swing.*;
@@ -38,7 +46,7 @@ public class Game extends JPanel {
     private final List<AbstractAircraft> enemyAircrafts;
     private final List<BaseBullet> heroBullets;
     private final List<BaseBullet> enemyBullets;
-    private final List<AbstractFlyingObject> items;
+    private final List<Item> items;
 
     /**
      * 屏幕中出现的敌机最大数量
@@ -60,10 +68,8 @@ public class Game extends JPanel {
      */
     private int cycleDuration = 600;
     private int cycleTime = 0;
-
-    private int Hero_Hp = 100;
     private int Mob_Hp = 30;
-    private int Elite_Hp = 50;
+    private int Elite_Hp = 30;
 
 
 
@@ -73,11 +79,7 @@ public class Game extends JPanel {
     private boolean gameOverFlag = false;
 
     public Game() {
-        heroAircraft = new HeroAircraft(
-                Main.WINDOW_WIDTH / 2,
-                Main.WINDOW_HEIGHT - ImageManager.HERO_IMAGE.getHeight() ,
-                0, 0, Hero_Hp);
-
+        heroAircraft = HeroAircraft.getHeroAircraft();
         enemyAircrafts = new LinkedList<>();
         heroBullets = new LinkedList<>();
         enemyBullets = new LinkedList<>();
@@ -114,25 +116,17 @@ public class Game extends JPanel {
                 if (enemyAircrafts.size() < enemyMaxNumber) {
                     Random rand = new Random();
                     int randomNum = rand.nextInt(100);
+                    AircraftFactory factory;
+                    AbstractAircraft enemyAircraft;
                     if(randomNum >=30) {
-                        enemyAircrafts.add(new MobEnemy(
-                                (int) (Math.random() * (Main.WINDOW_WIDTH - ImageManager.MOB_ENEMY_IMAGE.getWidth())),
-                                (int) (Math.random() * Main.WINDOW_HEIGHT * 0.05),
-                                0,
-                                4,
-                                Mob_Hp
-                        ));
+                       factory = new MobEnemyFactory();
+                       enemyAircraft = factory.createAircraft();
                     }
                     else{
-                        enemyAircrafts.add(new EliteEnemy(
-                                (int) (Math.random() * (Main.WINDOW_WIDTH - ImageManager.MOB_ENEMY_IMAGE.getWidth())),
-                                (int) (Math.random() * Main.WINDOW_HEIGHT * 0.05),
-                                0,
-                                6,
-                                Elite_Hp
-                        ));
-
+                        factory = new EliteEnemyFactory();
+                        enemyAircraft = factory.createAircraft();
                     }
+                    enemyAircrafts.add(enemyAircraft);
                 }
                 // 飞机射出子弹
                 shootAction();
@@ -254,17 +248,26 @@ public class Game extends JPanel {
                         score += 10;
                         if(enemyAircraft instanceof EliteEnemy){
                             Random rand = new Random();
-                            int randomNum = rand.nextInt(4);
-                            if(randomNum == 0){
-                                items.add(new Blood(enemyAircraft.getLocationX(),enemyAircraft.getLocationY(),0,8));
+                            int randomNum = rand.nextInt(100);
+                            Item item;
+                            ItemFactory factory;
+                            if(randomNum < 30){
+                                factory = new BloodFactory();
+                                item = factory.createItem(enemyAircraft.getLocationX(),enemyAircraft.getLocationY());
+                                items.add(item);
                             }
-                            else if(randomNum == 1){
-                                items.add(new Bomb(enemyAircraft.getLocationX(),enemyAircraft.getLocationY(),0,8));
+                            else if(randomNum >= 30 && randomNum <60){
+                                factory = new BombFactory();
+                                item = factory.createItem(enemyAircraft.getLocationX(),enemyAircraft.getLocationY());
+                                items.add(item);
+                            }
+                            else if(randomNum >=60 && randomNum < 90) {
+                                factory = new FireFactory();
+                                item = factory.createItem(enemyAircraft.getLocationX(), enemyAircraft.getLocationY());
+                                items.add(item);
+                            }
 
-                            }
-                            else if(randomNum == 2){
-                                items.add(new Fire(enemyAircraft.getLocationX(),enemyAircraft.getLocationY(),0,8));
-                            }
+
 
                         }
                     }
@@ -278,17 +281,9 @@ public class Game extends JPanel {
         }
 
         // Todo: 我方获得道具，道具生效
-        for(AbstractFlyingObject item : items){
+        for(Item item : items){
             if(heroAircraft.crash(item)){
-                if(item instanceof Blood blood){
-                    blood.work(heroAircraft);
-                }
-                else if(item instanceof Bomb bomb){
-                    System.out.println("FireSupply active!");
-                }
-                else if(item instanceof Fire fire){
-                    System.out.println("BombSupply active!");
-                }
+                item.work(heroAircraft);
                 item.vanish();
             }
         }

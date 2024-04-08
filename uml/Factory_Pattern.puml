@@ -1,0 +1,64 @@
+@startuml
+abstract class AbstractAircraft{
+    # maxHp:int
+    # hp:int
+    + AbstractAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
+    + decreaseHp(int decrease):void
+    + getHp():int
+    + {abstract} shoot():List<BaseBullet>
+}
+class MobEnemy{
+    + MobEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+}
+class EliteEnemy{
+    + EliteEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+}
+interface AircraftFactory{
+    +{abstract} createAircraft(): AbstractAircraft;
+}
+class EliteEnemyFactory{
+    + createAircraft():AbstractAircraft;
+}
+class MobEnemyFactory{
+    + createAircraft():AbstractAircraft;
+}
+AbstractAircraft <|-- MobEnemy
+AbstractAircraft <|-- EliteEnemy
+AircraftFactory <|.. EliteEnemyFactory
+AircraftFactory <|.. MobEnemyFactory
+AbstractAircraft <.. AircraftFactory
+
+abstract class Item{
+    + Item(int locationX, int locationY, int speedX, int speedY){
+            super(locationX, locationY, speedX, speedY)
+    + {abstract} work():void;
+}
+interface ItemFactory{
+    + createItem():Item;
+}
+class BloodFactory{
+    + createItem():Item;
+}
+class BombFactory{
+    + createItem():Item;
+}
+class FireFactory{
+    + createItem():Item;
+}
+class Blood{
+    + work():void;
+}
+class Bomb{
+    + work():void;
+}
+class Fire{
+    + work():void;
+}
+Item <.. ItemFactory
+Item <|-- Blood
+Item <|-- Bomb
+Item <|-- Fire
+ItemFactory <|.. BloodFactory
+ItemFactory <|.. BombFactory
+ItemFactory <|.. FireFactory
+@enduml
