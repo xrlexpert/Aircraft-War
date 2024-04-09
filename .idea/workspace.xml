@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_lang3_3_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Aircraft-War.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/BaseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/BaseItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Blood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/Blood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/BloodFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/factory/BloodFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/BombFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/factory/BombFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/FireFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/factory/FireFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/ItemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/factory/ItemFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/Factory_Pattern.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/Factory_Pattern.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/Inheritance.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/Inheritance.puml" afterDir="false" />
-    </list>
+    <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,19 +24,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hirox/Desktop/Aircraft-War/lab1(1)/lab1&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/hirox/Desktop/Aircraft-War/lab1(1)/lab1",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="lab1" />
