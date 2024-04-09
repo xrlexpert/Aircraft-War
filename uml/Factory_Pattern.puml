@@ -14,13 +14,13 @@ class EliteEnemy{
     + EliteEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
 }
 interface AircraftFactory{
-    +{abstract} createAircraft(): AbstractAircraft;
+    +{abstract} createAircraft(): AbstractAircraft
 }
 class EliteEnemyFactory{
-    + createAircraft():AbstractAircraft;
+    + createAircraft():AbstractAircraft
 }
 class MobEnemyFactory{
-    + createAircraft():AbstractAircraft;
+    + createAircraft():AbstractAircraft
 }
 AbstractAircraft <|-- MobEnemy
 AbstractAircraft <|-- EliteEnemy
@@ -29,30 +29,29 @@ AircraftFactory <|.. MobEnemyFactory
 AbstractAircraft <.. AircraftFactory
 
 abstract class BaseItem{
-    + Item(int locationX, int locationY, int speedX, int speedY){
-            super(locationX, locationY, speedX, speedY)
-    + {abstract} work():void;
+    + BaseItem(int locationX, int locationY, int speedX, int speedY)
+    + {abstract} work(HeroAircraft):void
 }
 interface ItemFactory{
-    + createItem():BaseItem;
+    + createItem():BaseItem
 }
 class BloodFactory{
-    + createItem():BaseItem;
+    + createItem():BaseItem
 }
 class BombFactory{
-    + createItem():BaseItem;
+    + createItem():BaseItem
 }
 class FireFactory{
-    + createItem():BaseItem;
+    + createItem():BaseItem
 }
 class Blood{
-    + work():void;
+    + work(HeroAircraft):void
 }
 class Bomb{
-    + work():void;
+    + work(HeroAircraft):void
 }
 class Fire{
-    + work():void;
+    + work(HeroAircraft):void
 }
 BaseItem <.. ItemFactory
 BaseItem <|-- Blood
