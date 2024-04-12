@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/uml/Item_Factory_Pattern.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/Singleton.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/Singleton.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uml/Factory_Pattern.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/Aircraft_Factory_Pattern.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="UML Sequence" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,24 +36,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/hirox/Desktop/Aircraft-War/lab1(1)/lab1",
-    "project.structure.last.edited": "Project",
-<<<<<<< HEAD
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hirox/Desktop/Aircraft-War/lab1(1)/lab1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
 =======
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
->>>>>>> 9701e110e157d4ff0eb4f073178cb8e4dcd62359
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9701e110e157d4ff0eb4f073178cb8e4dcd62359
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="lab1" />
@@ -63,7 +72,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-temurin-21.0.1-f644763e9732-a3c558b9" />
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
       </set>
     </attachedChunks>
   </component>
