@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/uml/Item_Factory_Pattern.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/AbstractEnemyAircraft.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/ElitePlusEnemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/BossEnemyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/ElitePlusEnemyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/EnemyAircraftFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/elitePlus.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/Factory_Pattern.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/Aircraft_Factory_Pattern.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/EliteEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/EliteEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/MobEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/MobEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/AircraftFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/EliteEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/EliteEnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/MobEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/MobEnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/ImageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/ImageManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Sequence" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,6 +66,11 @@
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 9701e110e157d4ff0eb4f073178cb8e4dcd62359
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hirox.LAPTOP-N2HONMO9\Desktop\面向对象\Project\src\images" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="lab1" />
@@ -72,6 +89,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-48ba4555" />
         <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
       </set>
     </attachedChunks>

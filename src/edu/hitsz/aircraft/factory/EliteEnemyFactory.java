@@ -1,17 +1,18 @@
 package edu.hitsz.aircraft.factory;
 
 import edu.hitsz.aircraft.AbstractAircraft;
+import edu.hitsz.aircraft.AbstractEnemyAircraft;
 import edu.hitsz.aircraft.EliteEnemy;
 import edu.hitsz.application.ImageManager;
 import edu.hitsz.application.Main;
 
-public class EliteEnemyFactory implements AircraftFactory{
+public class EliteEnemyFactory implements EnemyAircraftFactory{
     @Override
-    public AbstractAircraft createAircraft() {
+    public AbstractEnemyAircraft createAircraft() {
         return new EliteEnemy(
                 (int) (Math.random() * (Main.WINDOW_WIDTH - ImageManager.MOB_ENEMY_IMAGE.getWidth())),
                 (int) (Math.random() * Main.WINDOW_HEIGHT * 0.05),
-                0,
+                1,
                 4,
                 30
         );
