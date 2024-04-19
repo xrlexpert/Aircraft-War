@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class BaseItem{
+    + BaseItem(int locationX, int locationY, int speedX, int speedY)
+    + {abstract} work(HeroAircraft):void
+}
+interface ItemFactory{
+    + {abstract}createItem():BaseItem
+}
+class BloodFactory{
+    + createItem():BaseItem
+}
+class BombFactory{
+    + createItem():BaseItem
+}
+class FireFactory{
+    + createItem():BaseItem
+}
+class Blood{
+    + work(HeroAircraft):void
+}
+class Bomb{
+    + work(HeroAircraft):void
+}
+class Fire{
+    + work(HeroAircraft):void
+}
+BaseItem <.. ItemFactory
+BaseItem <|-- Blood
+BaseItem <|-- Bomb
+BaseItem <|-- Fire
+ItemFactory <|.. BloodFactory
+ItemFactory <|.. BombFactory
+ItemFactory <|.. FireFactory
+@enduml

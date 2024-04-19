@@ -1,11 +1,10 @@
 package edu.hitsz.application;
 
 import edu.hitsz.aircraft.*;
+import edu.hitsz.aircraft.factory.*;
 import edu.hitsz.bullet.BaseBullet;
 import edu.hitsz.basic.AbstractFlyingObject;
-import edu.hitsz.aircraft.factory.AircraftFactory;
-import edu.hitsz.aircraft.factory.EliteEnemyFactory;
-import edu.hitsz.aircraft.factory.MobEnemyFactory;
+import edu.hitsz.aircraft.factory.EnemyAircraftFactory;
 import edu.hitsz.item.Blood;
 import edu.hitsz.item.Bomb;
 import edu.hitsz.item.Fire;
@@ -43,7 +42,7 @@ public class Game extends JPanel {
     private int timeInterval = 40;
 
     private final HeroAircraft heroAircraft;
-    private final List<AbstractAircraft> enemyAircrafts;
+    private final List<AbstractEnemyAircraft> enemyAircrafts;
     private final List<BaseBullet> heroBullets;
     private final List<BaseBullet> enemyBullets;
     private final List<BaseItem> items;
@@ -77,6 +76,7 @@ public class Game extends JPanel {
      * 游戏结束标志
      */
     private boolean gameOverFlag = false;
+    private boolean BossFlag = false;
 
     public Game() {
         heroAircraft = HeroAircraft.getHeroAircraft();
@@ -108,7 +108,6 @@ public class Game extends JPanel {
 
             time += timeInterval;
 
-
             // 周期性执行（控制频率）
             if (timeCountAndNewCycleJudge()) {
                 System.out.println(time);
@@ -116,17 +115,30 @@ public class Game extends JPanel {
                 if (enemyAircrafts.size() < enemyMaxNumber) {
                     Random rand = new Random();
                     int randomNum = rand.nextInt(100);
-                    AircraftFactory factory;
-                    AbstractAircraft enemyAircraft;
+                    EnemyAircraftFactory factory;
+                    AbstractEnemyAircraft enemyAircraft;
                     if(randomNum >=30) {
                        factory = new MobEnemyFactory();
                        enemyAircraft = factory.createAircraft();
                     }
-                    else{
+                    else if(randomNum >= 5 && randomNum < 30){
                         factory = new EliteEnemyFactory();
                         enemyAircraft = factory.createAircraft();
                     }
+                    else{
+                        factory = new ElitePlusEnemyFactory();
+                        enemyAircraft = factory.createAircraft();
+                    }
                     enemyAircrafts.add(enemyAircraft);
+                }
+                if(score == 100 && BossFlag == false ){
+                    BossFlag = true;
+                    EnemyAircraftFactory factory;
+                    AbstractEnemyAircraft enemyAircraft;
+                    factory = new BossEnemyFactory();
+                    enemyAircraft = factory.createAircraft();
+                    enemyAircrafts.add(enemyAircraft);
+
                 }
                 // 飞机射出子弹
                 shootAction();
@@ -232,7 +244,7 @@ public class Game extends JPanel {
             if (bullet.notValid()) {
                 continue;
             }
-            for (AbstractAircraft enemyAircraft : enemyAircrafts) {
+            for (AbstractEnemyAircraft enemyAircraft : enemyAircrafts) {
                 if (enemyAircraft.notValid()) {
                     // 已被其他子弹击毁的敌机，不再检测
                     // 避免多个子弹重复击毁同一敌机的判定
@@ -246,30 +258,7 @@ public class Game extends JPanel {
                     if (enemyAircraft.notValid()) {
                         // TODO 获得分数，产生道具补给
                         score += 10;
-                        if(enemyAircraft instanceof EliteEnemy){
-                            Random rand = new Random();
-                            int randomNum = rand.nextInt(100);
-                            BaseItem item;
-                            ItemFactory factory;
-                            if(randomNum < 30){
-                                factory = new BloodFactory();
-                                item = factory.createItem(enemyAircraft.getLocationX(),enemyAircraft.getLocationY());
-                                items.add(item);
-                            }
-                            else if(randomNum >= 30 && randomNum <60){
-                                factory = new BombFactory();
-                                item = factory.createItem(enemyAircraft.getLocationX(),enemyAircraft.getLocationY());
-                                items.add(item);
-                            }
-                            else if(randomNum >=60 && randomNum < 90) {
-                                factory = new FireFactory();
-                                item = factory.createItem(enemyAircraft.getLocationX(), enemyAircraft.getLocationY());
-                                items.add(item);
-                            }
-
-
-
-                        }
+                        items.addAll(enemyAircraft.createItems());
                     }
                 }
                 // 英雄机 与 敌机 相撞，均损毁
