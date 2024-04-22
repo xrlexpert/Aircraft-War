@@ -6,7 +6,7 @@ import edu.hitsz.basic.AbstractFlyingObject;
 
 public class Blood extends BaseItem {
 
-        private static final int Heal_HP = 20;
+        private static final int Heal_HP = 300;
         public Blood(int locationX, int locationY, int speedX, int speedY){
             super(locationX, locationY, speedX, speedY);
         }

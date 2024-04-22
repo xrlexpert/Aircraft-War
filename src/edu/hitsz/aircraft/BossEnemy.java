@@ -42,16 +42,15 @@ public class BossEnemy extends AbstractEnemyAircraft {
     @Override
     public List<BaseBullet> shoot() {
         List<BaseBullet> res = new LinkedList<>();
-        int x = this.getLocationX();
-        int y = this.getLocationY() + direction*2;
-        int speedX = 2;
-        int speedY = this.getSpeedY() + direction*5;
+        int x = this.getLocationX() + speedX * 4;
+        int y = this.getLocationY();
+        int speedX = 5;
+        int speedY = 5;
         BaseBullet bullet;
-        int [] f = {-1,0,1};
         for(int i=0; i<shootNum; i++){
             // 子弹发射位置相对飞机位置向前偏移
             // 多个子弹横向分散
-            bullet = new EnemyBullet(x + (i*2 - shootNum + 1)*10*(int)Math.cos(360/shootNum * i), y + (i*2 - shootNum + 1)*10*(int)Math.sin(360/shootNum * i), (int)(speedX*Math.cos(360/shootNum * i)), (int)(speedY*Math.cos(360/shootNum * i)), power);
+            bullet = new EnemyBullet((int)(x + 200*Math.cos(2 * Math.PI / shootNum * i )), (int)(y + 200*Math.sin(2 * Math.PI / shootNum * i)), (int)(speedX*Math.cos(2 * Math.PI / shootNum * i)), (int)(speedY*Math.sin(2 * Math.PI / shootNum * i)), power);
             res.add(bullet);
         }
         return res;
@@ -59,25 +58,25 @@ public class BossEnemy extends AbstractEnemyAircraft {
 
     @Override
     public List<BaseItem> createItems() {
+        Random rand = new Random();
         List<BaseItem> items = new LinkedList<>();
         for(int i = 0; i < 3; i++) {
-            Random rand = new Random();
             int randomNum = rand.nextInt(100);
             BaseItem item;
             ItemFactory factory;
             if(randomNum < 30){
                 factory = new BloodFactory();
-                item = factory.createItem(this.getLocationX(),this.getLocationY());
+                item = factory.createItem(this.getLocationX() + i * 50,this.getLocationY());
                 items.add(item);
             }
             else if(randomNum >= 30 && randomNum <60){
                 factory = new BombFactory();
-                item = factory.createItem(this.getLocationX(),this.getLocationY());
+                item = factory.createItem(this.getLocationX() + i * 50,this.getLocationY());
                 items.add(item);
             }
             else if(randomNum >=60 && randomNum < 90) {
                 factory = new FireFactory();
-                item = factory.createItem(this.getLocationX(), this.getLocationY());
+                item = factory.createItem(this.getLocationX() + i * 50, this.getLocationY());
                 items.add(item);
             }
         }

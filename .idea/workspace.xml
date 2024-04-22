@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/AbstractEnemyAircraft.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/ElitePlusEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/BossEnemyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/ElitePlusEnemyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/EnemyAircraftFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/elitePlus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/edu/hitsz/aircraft/HeroAircraftTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/EliteEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/EliteEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/MobEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/MobEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/AircraftFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftWar-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftWar-base.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/BossEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/BossEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/HeroAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/HeroAircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/BossEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/BossEnemyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/EliteEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/EliteEnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/MobEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/MobEnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/ElitePlusEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/factory/ElitePlusEnemyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/ImageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/ImageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Blood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/Blood.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,7 @@
         <option value="UML Sequence" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -70,8 +68,29 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hirox.LAPTOP-N2HONMO9\Desktop\面向对象\Project\src\images" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="edu.hitsz.aircraft" />
+    </key>
   </component>
   <component name="RunManager">
+    <configuration name="HeroAircraftTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AircraftWar-base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.hitsz.aircraft.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.hitsz.aircraft" />
+      <option name="MAIN_CLASS_NAME" value="edu.hitsz.aircraft.HeroAircraftTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="lab1" />
       <method v="2">
@@ -85,12 +104,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HeroAircraftTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-48ba4555" />
-        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
+        <option value="jdk-21.0.1-temurin-21.0.1-4caba194b151-b7b86d5d" />
       </set>
     </attachedChunks>
   </component>

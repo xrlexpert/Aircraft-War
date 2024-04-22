@@ -70,13 +70,14 @@ public class Game extends JPanel {
     private int Mob_Hp = 30;
     private int Elite_Hp = 30;
 
+    private boolean BossFlag = false;
+
 
 
     /**
      * 游戏结束标志
      */
     private boolean gameOverFlag = false;
-    private boolean BossFlag = false;
 
     public Game() {
         heroAircraft = HeroAircraft.getHeroAircraft();
@@ -111,7 +112,7 @@ public class Game extends JPanel {
             // 周期性执行（控制频率）
             if (timeCountAndNewCycleJudge()) {
                 System.out.println(time);
-                // 新敌机产生
+                 //新敌机产生
                 if (enemyAircrafts.size() < enemyMaxNumber) {
                     Random rand = new Random();
                     int randomNum = rand.nextInt(100);
@@ -121,7 +122,7 @@ public class Game extends JPanel {
                        factory = new MobEnemyFactory();
                        enemyAircraft = factory.createAircraft();
                     }
-                    else if(randomNum >= 5 && randomNum < 30){
+                    else if(randomNum >= 10 && randomNum < 30){
                         factory = new EliteEnemyFactory();
                         enemyAircraft = factory.createAircraft();
                     }
@@ -131,14 +132,13 @@ public class Game extends JPanel {
                     }
                     enemyAircrafts.add(enemyAircraft);
                 }
-                if(score == 100 && BossFlag == false ){
-                    BossFlag = true;
+                if(score / 500 >= 1 && score % 500 == 0 && !BossFlag){
                     EnemyAircraftFactory factory;
                     AbstractEnemyAircraft enemyAircraft;
                     factory = new BossEnemyFactory();
                     enemyAircraft = factory.createAircraft();
                     enemyAircrafts.add(enemyAircraft);
-
+                    BossFlag = true;
                 }
                 // 飞机射出子弹
                 shootAction();
@@ -253,7 +253,16 @@ public class Game extends JPanel {
                 if (enemyAircraft.crash(bullet)) {
                     // 敌机撞击到英雄机子弹
                     // 敌机损失一定生命值
-                    enemyAircraft.decreaseHp(bullet.getPower());
+                    if(enemyAircraft instanceof BossEnemy){
+                        if(enemyAircraft.getHp() <= bullet.getPower()){
+                            BossFlag = false;
+                        }
+                        enemyAircraft.decreaseHp(bullet.getPower());
+                    }
+                    else{
+                        enemyAircraft.decreaseHp(bullet.getPower());
+                    }
+
                     bullet.vanish();
                     if (enemyAircraft.notValid()) {
                         // TODO 获得分数，产生道具补给
