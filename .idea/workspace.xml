@@ -5,8 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/AbstractShootStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/CircleShootStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/DirectShootStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/ScatterShootStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/item/FirePlus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/item/factory/FirePlusFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/prop_firePlus.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/AbstractAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/AbstractAircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/BossEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/BossEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/EliteEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/EliteEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/ElitePlusEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/ElitePlusEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/HeroAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/HeroAircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/MobEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/MobEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/ImageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/ImageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/basic/AbstractFlyingObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/basic/AbstractFlyingObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/item/Fire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +34,8 @@
       <list>
         <option value="UML Sequence" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,29 +53,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hirox/Desktop/Aircraft-War/lab1(1)/lab1&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9701e110e157d4ff0eb4f073178cb8e4dcd62359
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hirox.LAPTOP-N2HONMO9\Desktop\面向对象\Project\src\images" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hirox.LAPTOP-N2HONMO9\Desktop\面向对象\Project\src\images" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="edu.hitsz.aircraft" />
@@ -103,7 +112,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-temurin-21.0.1-4caba194b151-b7b86d5d" />
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
       </set>
     </attachedChunks>
   </component>

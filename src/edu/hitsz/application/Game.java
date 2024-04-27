@@ -232,6 +232,7 @@ public class Game extends JPanel {
             if(heroAircraft.crash(bullet)){
                 heroAircraft.decreaseHp(bullet.getPower());
                 bullet.vanish();
+                System.out.println(heroAircraft.getHp());
                 if(heroAircraft.notValid()){
                     gameOverFlag = true;
                 }
@@ -273,6 +274,7 @@ public class Game extends JPanel {
                 // 英雄机 与 敌机 相撞，均损毁
                 if (enemyAircraft.crash(heroAircraft) || heroAircraft.crash(enemyAircraft)) {
                     enemyAircraft.vanish();
+                    System.out.println(enemyAircraft.getClass());
                     heroAircraft.decreaseHp(Integer.MAX_VALUE);
                 }
             }

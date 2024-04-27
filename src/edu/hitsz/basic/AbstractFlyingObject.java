@@ -127,7 +127,7 @@ public abstract class AbstractFlyingObject {
         this.locationX = (int) locationX;
         this.locationY = (int) locationY;
     }
-
+    public int getSpeedX(){return speedX;}
     public int getSpeedY() {
         return speedY;
     }

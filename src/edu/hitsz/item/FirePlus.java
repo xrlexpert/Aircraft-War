@@ -1,12 +1,11 @@
 package edu.hitsz.item;
 
 import edu.hitsz.aircraft.HeroAircraft;
-import edu.hitsz.aircraft.strategy.ScatterShootStrategy;
+import edu.hitsz.aircraft.strategy.CircleShootStrategy;
 import edu.hitsz.application.Main;
-import edu.hitsz.basic.AbstractFlyingObject;
 
-public class Fire extends BaseItem {
-    public Fire(int locationX, int locationY, int speedX, int speedY){
+public class FirePlus extends BaseItem {
+    public FirePlus(int locationX, int locationY, int speedX, int speedY){
         super(locationX, locationY, speedX, speedY);
     }
     @Override
@@ -17,9 +16,11 @@ public class Fire extends BaseItem {
         }
     }
 
+
     @Override
     public void work(HeroAircraft heroAircraft) {
-        heroAircraft.setShootNum(Math.min(5,heroAircraft.getShootNum() + 2));
-        heroAircraft.setShootStrategy(new ScatterShootStrategy());
+        heroAircraft.setShootNum(Math.min(20,heroAircraft.getShootNum() + 5));
+        heroAircraft.setShootStrategy(new CircleShootStrategy());
+
     }
 }
