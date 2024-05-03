@@ -1,5 +1,7 @@
 package edu.hitsz.application;
 
+import data.Score;
+import data.ScoreDaoImpl;
 import edu.hitsz.aircraft.*;
 import edu.hitsz.aircraft.factory.*;
 import edu.hitsz.bullet.BaseBullet;
@@ -18,6 +20,7 @@ import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.*;
@@ -30,6 +33,7 @@ import java.util.concurrent.*;
 public class Game extends JPanel {
 
     private int backGroundTop = 0;
+    private static ScoreDaoImpl scoreDao = new ScoreDaoImpl();
 
     /**
      * Scheduled 线程池，用于任务调度
@@ -162,9 +166,15 @@ public class Game extends JPanel {
             // 游戏结束检查英雄机是否存活
             if (heroAircraft.getHp() <= 0) {
                 // 游戏结束
+                Date date = new Date( );
+                SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+                Score now = new Score(score,"testuser",ft.format(date));
+                scoreDao.addScore(now);
                 executorService.shutdown();
                 gameOverFlag = true;
                 System.out.println("Game Over!");
+                scoreDao.Print();
+                scoreDao.witeObject();
             }
 
         };

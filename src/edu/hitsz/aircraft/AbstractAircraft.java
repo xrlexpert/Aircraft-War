@@ -1,6 +1,6 @@
 package edu.hitsz.aircraft;
 
-import edu.hitsz.aircraft.strategy.AbstractShootStrategy;
+import edu.hitsz.aircraft.strategy.ShootStrategy;
 import edu.hitsz.basic.AbstractFlyingObject;
 import edu.hitsz.bullet.BaseBullet;
 
@@ -29,7 +29,7 @@ public abstract class AbstractAircraft extends AbstractFlyingObject {
      * 子弹射击方向 (向上发射：-1，向下发射：1)
      */
     protected int direction = 1;
-    protected AbstractShootStrategy shootStrategy;
+    protected ShootStrategy shootStrategy;
 
     public AbstractAircraft(int locationX, int locationY, int speedX, int speedY, int hp) {
         super(locationX, locationY, speedX, speedY);
@@ -56,7 +56,7 @@ public abstract class AbstractAircraft extends AbstractFlyingObject {
     public void setShootNum(int shootNum){
         this.shootNum = shootNum;
     }
-    public void setShootStrategy(AbstractShootStrategy shootStrategy){
+    public void setShootStrategy(ShootStrategy shootStrategy){
         this.shootStrategy = shootStrategy;
 
     }

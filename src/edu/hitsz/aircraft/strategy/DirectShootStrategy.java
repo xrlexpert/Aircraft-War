@@ -9,7 +9,7 @@ import edu.hitsz.bullet.HeroBullet;
 import java.util.LinkedList;
 import java.util.List;
 
-public class DirectShootStrategy implements AbstractShootStrategy {
+public class DirectShootStrategy implements ShootStrategy {
     @Override
     public List<BaseBullet> shoot(AbstractAircraft aircraft) {
         List<BaseBullet> res = new LinkedList<>();
