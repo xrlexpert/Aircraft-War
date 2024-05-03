@@ -29,7 +29,7 @@ public class ScoreDaoImpl implements  ScoreDao{
         }
 
     }
-    public void witeObject(){
+    public void writeObject(){
         File f =  new File("./src/data/ScoreRecord.dat");
         try{
             FileOutputStream out = new FileOutputStream(f);

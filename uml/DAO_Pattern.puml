@@ -1,0 +1,36 @@
+@startuml
+class Score{
+    - score:int
+    - id:int
+    - username:String
+    - date:String
+    + Score():void
+    + getScore():int
+    + getUsername():String
+    + getDate():String
+    + setScore():void
+    + setUsername():void
+    + setDate():void
+
+}
+interface ScoreDAO{
+    + {abstract} getAllScore():List<Score>
+    + {abstract} getScore(int id):Score
+    + {abstract} addScore (Score score):void
+    + {abstract} deleteScore(int id):boolean
+    + {abstract} Print():void
+}
+class ScoreDAOImpl{
+    - {static} ScoreList:List<Score>
+    + getAllScore():List<Score>
+    + getScore(int id):Score
+    + addScore (Score score):void
+    + deleteScore(int id):boolean
+    + Print():void
+    + writeObject():void
+    + readObject():void
+}
+ScoreDAO <|.. ScoreDAOImpl
+Score <-- ScoreDAOImpl
+
+@enduml

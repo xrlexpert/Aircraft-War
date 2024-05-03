@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/Score.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/ScoreDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/ScoreDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uml/Strategy_Pattern.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uml/DAO_Pattern.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/AbstractAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/AbstractAircraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/HeroAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/HeroAircraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/AbstractShootStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/ShootStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/CircleShootStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/CircleShootStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/DirectShootStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/DirectShootStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/ScatterShootStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/ScatterShootStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AircraftWar-base/data/ScoreRecord.dat" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AircraftWar-base/data/ScoreRecord.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/ScoreDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ScoreDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/ScoreRecord.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ScoreRecord.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uml/Strategy_Pattern.puml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/Strategy_Pattern.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,19 +42,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/hirox/Desktop/Aircraft-War/Aircraft-War",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hirox/Desktop/Aircraft-War/Aircraft-War&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hirox.LAPTOP-N2HONMO9\Desktop\面向对象\Project\src\images" />

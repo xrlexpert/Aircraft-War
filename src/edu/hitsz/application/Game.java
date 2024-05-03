@@ -174,7 +174,7 @@ public class Game extends JPanel {
                 gameOverFlag = true;
                 System.out.println("Game Over!");
                 scoreDao.Print();
-                scoreDao.witeObject();
+                scoreDao.writeObject();
             }
 
         };

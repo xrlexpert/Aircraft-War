@@ -4,6 +4,7 @@ class Game{
 }
 class AbstractAircraft{
     # shootStrategy:ShootStrategy
+    + shoot():List<BaseBullet>
     + setShootStrategy():void
 }
 interface ShootStrategy{
