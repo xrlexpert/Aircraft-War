@@ -13,7 +13,7 @@ public class Score implements Serializable,Comparable<Score> {
         return -(score - o.score);
 
     }
-
+    public Score(){}
     public Score(int score, String username, String date){
         this.score = score;
         this.username = username;

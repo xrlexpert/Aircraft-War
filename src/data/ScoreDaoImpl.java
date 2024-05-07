@@ -85,8 +85,8 @@ public class ScoreDaoImpl implements  ScoreDao{
         System.out.println("AircraftWar Rank List");
         System.out.println("**************************************************************");
         int rank = 1;
-        for(Score scoreRecord : ScoreList){
-            System.out.println("rank: " + rank + " " + "score: " + scoreRecord.getScore() +" " +  "usrName: " + scoreRecord.getUsername() + " " + "date: " + scoreRecord.getDate() );
+        for (Score scoreRecord : ScoreList) {
+            System.out.println("rank: " + rank + " " + "score: " + scoreRecord.getScore() + " " + "usrName: " + scoreRecord.getUsername() + " " + "date: " + scoreRecord.getDate());
             rank++;
         }
         System.out.println("**************************************************************");

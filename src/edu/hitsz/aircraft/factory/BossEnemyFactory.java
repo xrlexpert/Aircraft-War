@@ -2,6 +2,7 @@ package edu.hitsz.aircraft.factory;
 
 import edu.hitsz.aircraft.AbstractEnemyAircraft;
 import edu.hitsz.aircraft.BossEnemy;
+import edu.hitsz.application.GameConfig;
 import edu.hitsz.application.ImageManager;
 import edu.hitsz.application.Main;
 
@@ -20,6 +21,6 @@ public class BossEnemyFactory implements EnemyAircraftFactory{
                 (int) (Main.WINDOW_HEIGHT * 0.15),
                 f*2,
                 0,
-                450);
+                GameConfig.bossHp);
     }
 }

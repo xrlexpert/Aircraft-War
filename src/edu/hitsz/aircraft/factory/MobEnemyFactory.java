@@ -3,6 +3,7 @@ package edu.hitsz.aircraft.factory;
 import edu.hitsz.aircraft.AbstractAircraft;
 import edu.hitsz.aircraft.AbstractEnemyAircraft;
 import edu.hitsz.aircraft.MobEnemy;
+import edu.hitsz.application.GameConfig;
 import edu.hitsz.application.ImageManager;
 import edu.hitsz.application.Main;
 
@@ -14,7 +15,7 @@ public class MobEnemyFactory implements EnemyAircraftFactory{
                 (int) (Math.random() * Main.WINDOW_HEIGHT * 0.05),
                 0,
                 4,
-                30
+                GameConfig.mobBasicHp
         );
     }
 }

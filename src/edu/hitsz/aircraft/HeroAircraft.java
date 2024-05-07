@@ -1,6 +1,7 @@
 package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.DirectShootStrategy;
+import edu.hitsz.application.GameConfig;
 import edu.hitsz.application.ImageManager;
 import edu.hitsz.application.Main;
 
@@ -25,7 +26,7 @@ public class HeroAircraft extends AbstractAircraft {
                     heroaircraft =  new HeroAircraft(
                             Main.WINDOW_WIDTH / 2,
                             Main.WINDOW_HEIGHT - ImageManager.HERO_IMAGE.getHeight() ,
-                            0, 0, 1000);
+                            0, 0, GameConfig.heroBasicHp);
                 }
             }
         }
@@ -34,7 +35,7 @@ public class HeroAircraft extends AbstractAircraft {
     private HeroAircraft(int locationX, int locationY, int speedX, int speedY, int hp) {
         super(locationX, locationY, speedX, speedY, hp);
         this.shootStrategy = new DirectShootStrategy();
-        this.shootNum = 1;
+        this.shootNum = GameConfig.heroBasicFire;
         this.direction  = -1;
         this.power = 30;
     }

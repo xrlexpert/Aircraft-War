@@ -1,5 +1,8 @@
 package edu.hitsz.application;
 
+import data.Score;
+import edu.hitsz.component.StartMenu;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,6 +14,11 @@ public class Main {
 
     public static final int WINDOW_WIDTH = 512;
     public static final int WINDOW_HEIGHT = 768;
+    public static final java.awt.CardLayout CARD_LAYOUT = new java.awt.CardLayout(0,0);
+    public static final JPanel CARD_PANEL = new JPanel(CARD_LAYOUT);
+    public static final JFrame FRAME = new JFrame("Aircraft War");
+    public static int currentScore;
+    public static String currentUsrName;
 
     public static void main(String[] args) {
 
@@ -18,17 +26,24 @@ public class Main {
 
         // 获得屏幕的分辨率，初始化 Frame
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        JFrame frame = new JFrame("Aircraft War");
-        frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        frame.setResizable(false);
-        //设置窗口的大小和位置,居中放置
-        frame.setBounds(((int) screenSize.getWidth() - WINDOW_WIDTH) / 2, 0,
-                WINDOW_WIDTH, WINDOW_HEIGHT);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        FRAME.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        FRAME.setResizable(false);
+        //设置窗口的大小和位置,居中放置
+        FRAME.setBounds(((int) screenSize.getWidth() - WINDOW_WIDTH) / 2, 0,
+                WINDOW_WIDTH, WINDOW_HEIGHT);
+        FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        StartMenu startMenu = new StartMenu();
+        CARD_PANEL.add(startMenu.getMainPanel(),"StartMenu");
+        FRAME.add(CARD_PANEL);
+        CARD_LAYOUT.show(CARD_PANEL,"StartMenu");
+        FRAME.setVisible(true);
+    }
+    public static void startGame(){
         Game game = new Game();
-        frame.add(game);
-        frame.setVisible(true);
+        Main.CARD_PANEL.add(game,"Game");
+        Main.CARD_LAYOUT.show(Main.CARD_PANEL,"Game");
+        Main.FRAME.setVisible(true);
         game.action();
     }
 }

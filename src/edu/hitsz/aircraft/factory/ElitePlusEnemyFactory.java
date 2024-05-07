@@ -3,6 +3,7 @@ package edu.hitsz.aircraft.factory;
 import edu.hitsz.aircraft.AbstractAircraft;
 import edu.hitsz.aircraft.AbstractEnemyAircraft;
 import edu.hitsz.aircraft.ElitePlusEnemy;
+import edu.hitsz.application.GameConfig;
 import edu.hitsz.application.ImageManager;
 import edu.hitsz.application.Main;
 
@@ -21,6 +22,6 @@ public class ElitePlusEnemyFactory implements EnemyAircraftFactory  {
                 (int) (Math.random() * Main.WINDOW_HEIGHT * 0.05),
                 f*2,
                 4,
-                30);
+                GameConfig.elitePlusBasicHp);
     }
 }

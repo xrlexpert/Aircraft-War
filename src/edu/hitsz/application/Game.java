@@ -7,6 +7,7 @@ import edu.hitsz.aircraft.factory.*;
 import edu.hitsz.bullet.BaseBullet;
 import edu.hitsz.basic.AbstractFlyingObject;
 import edu.hitsz.aircraft.factory.EnemyAircraftFactory;
+import edu.hitsz.component.UserNameinputBox;
 import edu.hitsz.item.Blood;
 import edu.hitsz.item.Bomb;
 import edu.hitsz.item.Fire;
@@ -33,7 +34,7 @@ import java.util.concurrent.*;
 public class Game extends JPanel {
 
     private int backGroundTop = 0;
-    private static ScoreDaoImpl scoreDao = new ScoreDaoImpl();
+    public static ScoreDaoImpl scoreDao = new ScoreDaoImpl();
 
     /**
      * Scheduled 线程池，用于任务调度
@@ -59,7 +60,7 @@ public class Game extends JPanel {
     /**
      * 当前得分
      */
-    private int score = 0;
+    private  int score = 0;
     /**
      * 当前时刻
      */
@@ -71,10 +72,12 @@ public class Game extends JPanel {
      */
     private int cycleDuration = 600;
     private int cycleTime = 0;
-    private int Mob_Hp = 30;
-    private int Elite_Hp = 30;
 
     private boolean BossFlag = false;
+    private int bossScoreThreshold = 300;
+    private double ratioOfEliteEnemy = 0.75;
+    private int cntOfMeetingBoss = 0;
+
 
 
 
@@ -89,6 +92,13 @@ public class Game extends JPanel {
         heroBullets = new LinkedList<>();
         enemyBullets = new LinkedList<>();
         items = new LinkedList<>();
+        timeInterval = GameConfig.timeInterval;
+        cycleDuration = GameConfig.cycleDuration;
+        enemyMaxNumber = GameConfig.enemyMaxNumber;
+        bossScoreThreshold = GameConfig.bossScoreThreshold;
+        ratioOfEliteEnemy = GameConfig.ratioOfEliteEnemy;
+        cntOfMeetingBoss = 1;
+
 
         /**
          * Scheduled 线程池，用于定时任务调度
@@ -100,6 +110,18 @@ public class Game extends JPanel {
 
         //启动英雄机鼠标监听
         new HeroController(this, heroAircraft);
+
+    }
+    public void endGame(){
+        Main.currentScore = score;
+        executorService.shutdown();
+        gameOverFlag = true;
+        System.out.println("Game Over!");
+        UserNameinputBox userNameinputBox = new UserNameinputBox();
+        Main.CARD_PANEL.add(userNameinputBox.getMainPanel(),"UserNameinputBox");
+        Main.CARD_LAYOUT.show(Main.CARD_PANEL,"UserNameinputBox");
+        Main.FRAME.add(Main.CARD_PANEL);
+        Main.FRAME.setVisible(true);
 
     }
 
@@ -122,11 +144,11 @@ public class Game extends JPanel {
                     int randomNum = rand.nextInt(100);
                     EnemyAircraftFactory factory;
                     AbstractEnemyAircraft enemyAircraft;
-                    if(randomNum >=30) {
+                    if(randomNum >= 100 * ratioOfEliteEnemy) {
                        factory = new MobEnemyFactory();
                        enemyAircraft = factory.createAircraft();
                     }
-                    else if(randomNum >= 10 && randomNum < 30){
+                    else if(randomNum >= 100 * ratioOfEliteEnemy * 2/3 && randomNum < 100 * ratioOfEliteEnemy ){
                         factory = new EliteEnemyFactory();
                         enemyAircraft = factory.createAircraft();
                     }
@@ -136,12 +158,13 @@ public class Game extends JPanel {
                     }
                     enemyAircrafts.add(enemyAircraft);
                 }
-                if(score / 100 >= 1 && score % 100 == 0 && !BossFlag){
+                if(score / bossScoreThreshold >= cntOfMeetingBoss && !BossFlag){
                     EnemyAircraftFactory factory;
                     AbstractEnemyAircraft enemyAircraft;
                     factory = new BossEnemyFactory();
                     enemyAircraft = factory.createAircraft();
                     enemyAircrafts.add(enemyAircraft);
+                    cntOfMeetingBoss += 1;
                     BossFlag = true;
                 }
                 // 飞机射出子弹
@@ -166,15 +189,7 @@ public class Game extends JPanel {
             // 游戏结束检查英雄机是否存活
             if (heroAircraft.getHp() <= 0) {
                 // 游戏结束
-                Date date = new Date( );
-                SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
-                Score now = new Score(score,"testuser",ft.format(date));
-                scoreDao.addScore(now);
-                executorService.shutdown();
-                gameOverFlag = true;
-                System.out.println("Game Over!");
-                scoreDao.Print();
-                scoreDao.writeObject();
+                endGame();
             }
 
         };

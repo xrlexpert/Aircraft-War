@@ -56,8 +56,7 @@ public class ImageManager {
     static {
         try {
 
-            BACKGROUND_IMAGE = ImageIO.read(new FileInputStream("src/images/bg.jpg"));
-
+            BACKGROUND_IMAGE = ImageIO.read(new FileInputStream(GameConfig.BACKGROUND_IMAGE));
             HERO_IMAGE = ImageIO.read(new FileInputStream("src/images/hero.png"));
             MOB_ENEMY_IMAGE = ImageIO.read(new FileInputStream("src/images/mob.png"));
             ELITE_ENEMY_IMAGE = ImageIO.read(new FileInputStream("src/images/elite.png"));
