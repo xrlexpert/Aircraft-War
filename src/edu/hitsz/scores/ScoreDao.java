@@ -1,4 +1,4 @@
-package data;
+package edu.hitsz.scores;
 
 import java.util.List;
 

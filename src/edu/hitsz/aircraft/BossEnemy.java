@@ -1,8 +1,9 @@
 package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.CircleShootStrategy;
-import edu.hitsz.item.BaseItem;
-import edu.hitsz.item.factory.*;
+import edu.hitsz.application.Game;
+import edu.hitsz.supply.BaseItem;
+import edu.hitsz.supply.factory.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class BossEnemy extends AbstractEnemyAircraft {
         this.direction = 1;
         this.power = 30;
         this.shootStrategy = new CircleShootStrategy();
+        Game.bossMusicFlag = true;
 
     }
     @Override
@@ -66,5 +68,10 @@ public class BossEnemy extends AbstractEnemyAircraft {
     @Override
     public void forward() {
         super.forward();
+    }
+    @Override
+    public void vanish(){
+        super.vanish();
+        Game.bossMusicFlag = false;
     }
 }

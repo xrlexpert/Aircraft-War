@@ -1,7 +1,6 @@
 package edu.hitsz.aircraft;
 
-import edu.hitsz.bullet.BaseBullet;
-import edu.hitsz.item.BaseItem;
+import edu.hitsz.supply.BaseItem;
 
 import java.util.List;
 

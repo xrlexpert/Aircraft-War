@@ -1,6 +1,5 @@
 package edu.hitsz.application;
 
-import data.Score;
 import edu.hitsz.component.StartMenu;
 
 import javax.swing.*;
@@ -45,5 +44,6 @@ public class Main {
         Main.CARD_LAYOUT.show(Main.CARD_PANEL,"Game");
         Main.FRAME.setVisible(true);
         game.action();
+
     }
 }

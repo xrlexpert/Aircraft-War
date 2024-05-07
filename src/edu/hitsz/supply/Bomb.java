@@ -1,8 +1,7 @@
-package edu.hitsz.item;
+package edu.hitsz.supply;
 
 import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.application.Main;
-import edu.hitsz.basic.AbstractFlyingObject;
 
 public class Bomb extends BaseItem {
     public Bomb(int locationX, int locationY, int speedX, int speedY){

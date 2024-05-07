@@ -1,7 +1,7 @@
-package edu.hitsz.item.factory;
+package edu.hitsz.supply.factory;
 
-import edu.hitsz.item.Blood;
-import edu.hitsz.item.BaseItem;
+import edu.hitsz.supply.Blood;
+import edu.hitsz.supply.BaseItem;
 
 public class BloodFactory implements ItemFactory{
     @Override

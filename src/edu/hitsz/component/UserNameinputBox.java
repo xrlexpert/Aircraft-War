@@ -1,11 +1,10 @@
 package edu.hitsz.component;
 
-import data.Score;
+import edu.hitsz.scores.Score;
 import edu.hitsz.application.Game;
 import edu.hitsz.application.Main;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;

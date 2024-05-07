@@ -1,8 +1,7 @@
-package edu.hitsz.item;
+package edu.hitsz.supply;
 
 import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.application.Main;
-import edu.hitsz.basic.AbstractFlyingObject;
 
 public class Blood extends BaseItem {
 

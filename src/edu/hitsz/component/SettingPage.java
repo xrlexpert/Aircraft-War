@@ -42,6 +42,7 @@ public class SettingPage {
                     System.out.println("Music and sound effects have been ENABLED.");
                 }
                 else{
+                    GameConfig.setMusicFlag(false);
                     System.out.println("Music and sound effects have been DISABLED");
                 }
 

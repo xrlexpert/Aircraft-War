@@ -1,6 +1,6 @@
-package edu.hitsz.item.factory;
+package edu.hitsz.supply.factory;
 
-import edu.hitsz.item.BaseItem;
+import edu.hitsz.supply.BaseItem;
 
 public interface ItemFactory {
     public abstract BaseItem createItem(int x,int y);

@@ -1,8 +1,7 @@
-package edu.hitsz.item.factory;
+package edu.hitsz.supply.factory;
 
-import edu.hitsz.item.BaseItem;
-import edu.hitsz.item.Fire;
-import edu.hitsz.item.BaseItem;
+import edu.hitsz.supply.BaseItem;
+import edu.hitsz.supply.Fire;
 
 public class FireFactory implements ItemFactory {
     @Override

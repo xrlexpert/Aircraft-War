@@ -2,10 +2,8 @@ package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.ScatterShootStrategy;
 import edu.hitsz.application.Main;
-import edu.hitsz.bullet.BaseBullet;
-import edu.hitsz.bullet.EnemyBullet;
-import edu.hitsz.item.BaseItem;
-import edu.hitsz.item.factory.*;
+import edu.hitsz.supply.BaseItem;
+import edu.hitsz.supply.factory.*;
 
 import java.util.LinkedList;
 import java.util.List;

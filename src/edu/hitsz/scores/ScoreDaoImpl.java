@@ -1,4 +1,4 @@
-package data;
+package edu.hitsz.scores;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class ScoreDaoImpl implements  ScoreDao{
 
 
     public void readObject(){
-        File f =  new File("./src/data/ScoreRecord.dat");
+        File f =  new File("./src/edu/hitsz/scores/ScoreRecord.dat");
         try{
             FileInputStream in = new FileInputStream(f);
             ObjectInputStream objIn=new ObjectInputStream(in);
@@ -30,7 +30,7 @@ public class ScoreDaoImpl implements  ScoreDao{
 
     }
     public void writeObject(){
-        File f =  new File("./src/data/ScoreRecord.dat");
+        File f =  new File("./src/edu/hitsz/scores/ScoreRecord.dat");
         try{
             FileOutputStream out = new FileOutputStream(f);
             ObjectOutputStream objOut  = new ObjectOutputStream(out);

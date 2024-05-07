@@ -21,7 +21,7 @@ public class GameConfig {
 
     public static int bossScoreThreshold = 500;
     public static double ratioOfEliteEnemy = 0.4;
-    public static boolean musicFlag = false;
+    public static boolean musicFlag = true;
     public static String BACKGROUND_IMAGE = "src/images/bg.jpg";
     public static void setGameMode(int mode){
         if(mode == 1){

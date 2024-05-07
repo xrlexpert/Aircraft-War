@@ -1,27 +1,19 @@
 package edu.hitsz.application;
 
-import data.Score;
-import data.ScoreDaoImpl;
+import edu.hitsz.scores.ScoreDaoImpl;
 import edu.hitsz.aircraft.*;
 import edu.hitsz.aircraft.factory.*;
 import edu.hitsz.bullet.BaseBullet;
 import edu.hitsz.basic.AbstractFlyingObject;
 import edu.hitsz.aircraft.factory.EnemyAircraftFactory;
 import edu.hitsz.component.UserNameinputBox;
-import edu.hitsz.item.Blood;
-import edu.hitsz.item.Bomb;
-import edu.hitsz.item.Fire;
-import edu.hitsz.item.BaseItem;
-import edu.hitsz.item.factory.BloodFactory;
-import edu.hitsz.item.factory.BombFactory;
-import edu.hitsz.item.factory.FireFactory;
-import edu.hitsz.item.factory.ItemFactory;
+import edu.hitsz.supply.BaseItem;
+import edu.hitsz.thread.MusicManagerThread;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.*;
@@ -35,11 +27,19 @@ public class Game extends JPanel {
 
     private int backGroundTop = 0;
     public static ScoreDaoImpl scoreDao = new ScoreDaoImpl();
+    /**
+     * 游戏结束标志
+     */
+    public  static boolean gameOverFlag = false;
+    public static boolean bossMusicFlag = false;
+
 
     /**
-     * Scheduled 线程池，用于任务调度
+     * Scheduled 线程池，用于定时任务调度
+     * 关于alibaba code guide：可命名的 ThreadFactory 一般需要第三方包
+     * apache 第三方库： org.apache.commons.lang3.concurrent.BasicThreadFactory
      */
-    private final ScheduledExecutorService executorService;
+    public static final ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(30);
 
     /**
      * 时间间隔(ms)，控制刷新频率
@@ -73,7 +73,7 @@ public class Game extends JPanel {
     private int cycleDuration = 600;
     private int cycleTime = 0;
 
-    private boolean BossFlag = false;
+    private boolean bossFlag = false;
     private int bossScoreThreshold = 300;
     private double ratioOfEliteEnemy = 0.75;
     private int cntOfMeetingBoss = 0;
@@ -81,10 +81,7 @@ public class Game extends JPanel {
 
 
 
-    /**
-     * 游戏结束标志
-     */
-    private boolean gameOverFlag = false;
+
 
     public Game() {
         heroAircraft = HeroAircraft.getHeroAircraft();
@@ -99,14 +96,6 @@ public class Game extends JPanel {
         ratioOfEliteEnemy = GameConfig.ratioOfEliteEnemy;
         cntOfMeetingBoss = 1;
 
-
-        /**
-         * Scheduled 线程池，用于定时任务调度
-         * 关于alibaba code guide：可命名的 ThreadFactory 一般需要第三方包
-         * apache 第三方库： org.apache.commons.lang3.concurrent.BasicThreadFactory
-         */
-        this.executorService = new ScheduledThreadPoolExecutor(1,
-                new BasicThreadFactory.Builder().namingPattern("game-action-%d").daemon(true).build());
 
         //启动英雄机鼠标监听
         new HeroController(this, heroAircraft);
@@ -129,7 +118,6 @@ public class Game extends JPanel {
      * 游戏启动入口，执行游戏逻辑
      */
     public void action() {
-
         // 定时任务：绘制、对象产生、碰撞判定、击毁及结束判定
         Runnable task = () -> {
 
@@ -158,14 +146,14 @@ public class Game extends JPanel {
                     }
                     enemyAircrafts.add(enemyAircraft);
                 }
-                if(score / bossScoreThreshold >= cntOfMeetingBoss && !BossFlag){
+                if(score / bossScoreThreshold >= cntOfMeetingBoss && !bossFlag){
                     EnemyAircraftFactory factory;
                     AbstractEnemyAircraft enemyAircraft;
                     factory = new BossEnemyFactory();
                     enemyAircraft = factory.createAircraft();
                     enemyAircrafts.add(enemyAircraft);
                     cntOfMeetingBoss += 1;
-                    BossFlag = true;
+                    bossFlag = true;
                 }
                 // 飞机射出子弹
                 shootAction();
@@ -199,6 +187,10 @@ public class Game extends JPanel {
          * 本次任务执行完成后，需要延迟设定的延迟时间，才会执行新的任务
          */
         executorService.scheduleWithFixedDelay(task, timeInterval, timeInterval, TimeUnit.MILLISECONDS);
+        if(GameConfig.musicFlag){
+            MusicManagerThread musicManagerThread = new MusicManagerThread();
+            executorService.execute(musicManagerThread);
+        }
 
     }
 
@@ -281,7 +273,7 @@ public class Game extends JPanel {
                     // 敌机损失一定生命值
                     if(enemyAircraft instanceof BossEnemy){
                         if(enemyAircraft.getHp() <= bullet.getPower()){
-                            BossFlag = false;
+                            bossFlag = false;
                         }
                         enemyAircraft.decreaseHp(bullet.getPower());
                     }
@@ -293,6 +285,9 @@ public class Game extends JPanel {
                     if (enemyAircraft.notValid()) {
                         // TODO 获得分数，产生道具补给
                         score += 10;
+                        if(enemyAircraft instanceof BossEnemy){
+                            score += 80;
+                        }
                         items.addAll(enemyAircraft.createItems());
                     }
                 }

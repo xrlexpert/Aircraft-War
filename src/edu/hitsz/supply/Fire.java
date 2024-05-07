@@ -1,9 +1,8 @@
-package edu.hitsz.item;
+package edu.hitsz.supply;
 
 import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.aircraft.strategy.ScatterShootStrategy;
 import edu.hitsz.application.Main;
-import edu.hitsz.basic.AbstractFlyingObject;
 
 public class Fire extends BaseItem {
     public Fire(int locationX, int locationY, int speedX, int speedY){
