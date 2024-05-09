@@ -17,8 +17,6 @@ public class BossEnemy extends AbstractEnemyAircraft {
         this.direction = 1;
         this.power = 30;
         this.shootStrategy = new CircleShootStrategy();
-        Game.bossMusicFlag = true;
-
     }
     @Override
     public void decreaseHp(int decrease) {
@@ -72,6 +70,6 @@ public class BossEnemy extends AbstractEnemyAircraft {
     @Override
     public void vanish(){
         super.vanish();
-        Game.bossMusicFlag = false;
+        Game.bossFlag = false;
     }
 }

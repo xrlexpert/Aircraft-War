@@ -19,7 +19,7 @@ public class GameConfig {
     public static int elitePlusBasicHp = 30;
     public static int bossHp = 520;
 
-    public static int bossScoreThreshold = 500;
+    public static int bossScoreThreshold = 100;
     public static double ratioOfEliteEnemy = 0.4;
     public static boolean musicFlag = true;
     public static String BACKGROUND_IMAGE = "src/images/bg.jpg";

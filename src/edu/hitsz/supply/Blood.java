@@ -2,6 +2,7 @@ package edu.hitsz.supply;
 
 import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.application.Main;
+import edu.hitsz.thread.music.SupplyMusic;
 
 public class Blood extends BaseItem {
 
@@ -17,8 +18,11 @@ public class Blood extends BaseItem {
             vanish();
         }
     }
+
+
     @Override
     public void work(HeroAircraft heroAircraft){
         heroAircraft.increaseHp(Heal_HP);
+        SupplyMusic.music(0);
     }
 }

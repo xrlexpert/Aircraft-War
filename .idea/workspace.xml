@@ -5,35 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d379e864-737d-4511-8ff7-94a31eda9aec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/MusicManagerThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/MusicThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/fireboost/FirePlusThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/fireboost/FireThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/music/BackGroundMusicThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/music/BossMusicThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/music/MusicConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/music/SupplyMusic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/scores/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ScoreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/scores/ScoreDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ScoreDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/scores/ScoreDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ScoreRecord.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/scores/ScoreRecord.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/AbstractEnemyAircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/AbstractEnemyAircraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AircraftWar-base/edu/hitsz/scores/ScoreRecord.dat" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AircraftWar-base/edu/hitsz/scores/ScoreRecord.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/BossEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/BossEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/EliteEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/EliteEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/ElitePlusEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/ElitePlusEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/MobEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/MobEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/CircleShootStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/aircraft/strategy/CircleShootStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/GameConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/GameConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/ImageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/ImageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/application/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/component/EndPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/component/EndPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/component/SettingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/component/SettingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/component/UserNameinputBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/component/UserNameinputBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/BaseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/BaseItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Blood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/Blood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/FirePlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/FirePlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/BloodFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/factory/BloodFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/BombFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/factory/BombFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/FireFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/factory/FireFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/FirePlusFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/factory/FirePlusFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/item/factory/ItemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/factory/ItemFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/scores/ScoreRecord.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/scores/ScoreRecord.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/supply/BaseItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/BaseItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/supply/Blood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/Blood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/supply/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/supply/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/supply/FirePlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/supply/FirePlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/thread/MusicManagerThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/hitsz/thread/MusicThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/hitsz/thread/music/MusicThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,13 +60,13 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "282",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "489",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/hirox/Desktop/Aircraft-War/lab5/实验五/ThreadDemo",
+    "last_opened_file_path": "C:/Users/hirox.LAPTOP-N2HONMO9/Desktop/面向对象/Project",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -134,7 +125,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-temurin-21.0.1-4caba194b151-b7b86d5d" />
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
       </set>
     </attachedChunks>
   </component>

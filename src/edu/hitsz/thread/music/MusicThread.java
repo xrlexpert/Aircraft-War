@@ -1,6 +1,4 @@
-package edu.hitsz.thread;
-
-import edu.hitsz.application.Game;
+package edu.hitsz.thread.music;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -24,6 +22,17 @@ public class MusicThread implements Runnable {
     private AudioFormat audioFormat;
     private byte[] samples;
     private boolean loopFlag;
+    private boolean stopFlag = false;
+
+    public void setMusicEndFlag(boolean musicEndFlag) {
+        this.musicEndFlag = musicEndFlag;
+    }
+
+    public boolean isMusicEndFlag() {
+        return musicEndFlag;
+    }
+
+    private boolean musicEndFlag = true;
 
     public MusicThread(String filename,boolean loopFlag) {
         //初始化filename
@@ -78,7 +87,7 @@ public class MusicThread implements Runnable {
         dataLine.start();
         try {
             int numBytesRead = 0;
-            while (numBytesRead != -1 ) {
+            while (numBytesRead != -1  && !stopFlag) {
                 //从音频流读取指定的最大数量的数据字节，并将其放入缓冲区中
                 numBytesRead =
                         source.read(buffer, 0, buffer.length);
@@ -102,7 +111,11 @@ public class MusicThread implements Runnable {
         InputStream stream = new ByteArrayInputStream(samples);
         play(stream);
         if(loopFlag){
-            MusicManagerThread.musicEndFlag = true;
+           musicEndFlag = true;
         }
     }
+    public void stop(){
+        stopFlag = true;
+    }
+
 }

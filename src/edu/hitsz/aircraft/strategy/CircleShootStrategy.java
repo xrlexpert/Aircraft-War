@@ -23,7 +23,7 @@ public class CircleShootStrategy implements ShootStrategy {
             for(int i=0; i<shootNum; i++){
                 // 子弹发射位置相对飞机位置向前偏移
                 // 多个子弹横向分散
-                bullet = new HeroBullet((int)(x + 200*Math.cos(2 * Math.PI /shootNum * i )), (int)(y + 200*Math.sin(2 * Math.PI / shootNum * i)), (int)(speedX*Math.cos(2 * Math.PI / shootNum * i)), (int)(speedY*Math.sin(2 * Math.PI /shootNum * i)), aircraft.getPower());
+                bullet = new HeroBullet((int)(x + 100*Math.cos(2 * Math.PI /shootNum * i )), (int)(y + 100*Math.sin(2 * Math.PI / shootNum * i)), (int)(speedX*Math.cos(2 * Math.PI / shootNum * i)), (int)(speedY*Math.sin(2 * Math.PI /shootNum * i)), aircraft.getPower());
                 res.add(bullet);
             }
         }

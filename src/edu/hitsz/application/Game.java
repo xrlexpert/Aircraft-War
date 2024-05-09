@@ -8,8 +8,11 @@ import edu.hitsz.basic.AbstractFlyingObject;
 import edu.hitsz.aircraft.factory.EnemyAircraftFactory;
 import edu.hitsz.component.UserNameinputBox;
 import edu.hitsz.supply.BaseItem;
-import edu.hitsz.thread.MusicManagerThread;
-import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+import edu.hitsz.supply.Bomb;
+import edu.hitsz.thread.music.BackGroundMusicThread;
+import edu.hitsz.thread.music.BossMusicThread;
+import edu.hitsz.thread.music.MusicConfig;
+import edu.hitsz.thread.music.MusicThread;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +34,7 @@ public class Game extends JPanel {
      * 游戏结束标志
      */
     public  static boolean gameOverFlag = false;
-    public static boolean bossMusicFlag = false;
+    public static boolean bossFlag = false;
 
 
     /**
@@ -73,7 +76,6 @@ public class Game extends JPanel {
     private int cycleDuration = 600;
     private int cycleTime = 0;
 
-    private boolean bossFlag = false;
     private int bossScoreThreshold = 300;
     private double ratioOfEliteEnemy = 0.75;
     private int cntOfMeetingBoss = 0;
@@ -103,15 +105,15 @@ public class Game extends JPanel {
     }
     public void endGame(){
         Main.currentScore = score;
-        executorService.shutdown();
         gameOverFlag = true;
         System.out.println("Game Over!");
+        Game.executorService.execute(new MusicThread(MusicConfig.GAME_OVER_MUSIC,false));
         UserNameinputBox userNameinputBox = new UserNameinputBox();
         Main.CARD_PANEL.add(userNameinputBox.getMainPanel(),"UserNameinputBox");
         Main.CARD_LAYOUT.show(Main.CARD_PANEL,"UserNameinputBox");
         Main.FRAME.add(Main.CARD_PANEL);
         Main.FRAME.setVisible(true);
-
+        Game.executorService.shutdown();
     }
 
     /**
@@ -157,6 +159,7 @@ public class Game extends JPanel {
                 }
                 // 飞机射出子弹
                 shootAction();
+                Game.executorService.execute(new MusicThread(MusicConfig.BULLET_MUSIC,false));
             }
 
             // 子弹移动
@@ -188,8 +191,10 @@ public class Game extends JPanel {
          */
         executorService.scheduleWithFixedDelay(task, timeInterval, timeInterval, TimeUnit.MILLISECONDS);
         if(GameConfig.musicFlag){
-            MusicManagerThread musicManagerThread = new MusicManagerThread();
-            executorService.execute(musicManagerThread);
+            BackGroundMusicThread backGroundMusicThread = new BackGroundMusicThread();
+            BossMusicThread bossMusicThread = new BossMusicThread();
+            executorService.execute(backGroundMusicThread);
+            executorService.execute(bossMusicThread);
         }
 
     }
@@ -271,6 +276,7 @@ public class Game extends JPanel {
                 if (enemyAircraft.crash(bullet)) {
                     // 敌机撞击到英雄机子弹
                     // 敌机损失一定生命值
+                    Game.executorService.execute(new MusicThread(MusicConfig.BULLET_HIT_MUSIC,false));
                     if(enemyAircraft instanceof BossEnemy){
                         if(enemyAircraft.getHp() <= bullet.getPower()){
                             bossFlag = false;
