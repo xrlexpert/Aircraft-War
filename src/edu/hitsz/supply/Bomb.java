@@ -19,6 +19,7 @@ public class Bomb extends BaseItem {
     @Override
     public void work(HeroAircraft heroAircraft) {
         System.out.println("BombSupply active!");
+        SupplyMusic.music(0);
         SupplyMusic.music(1);
     }
 }
