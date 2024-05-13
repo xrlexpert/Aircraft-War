@@ -1,6 +1,6 @@
 package edu.hitsz.thread.music;
 
-import edu.hitsz.application.Game;
+import edu.hitsz.application.game.Game;
 
 public class SupplyMusic {
 

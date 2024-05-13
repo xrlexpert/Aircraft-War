@@ -3,7 +3,7 @@ package edu.hitsz.application;
 import javax.imageio.ImageIO;
 import java.io.FileInputStream;
 
-public class GameConfig {
+    public class GameConfig {
     /**The interval of paint refreshing and all sorts of check*/
     public static  int timeInterval = 40;
 
@@ -16,7 +16,7 @@ public class GameConfig {
     public static int heroBasicFire = 2;
     public static int mobBasicHp = 30;
     public static int eliteBasicHp = 30;
-    public static int elitePlusBasicHp = 30;
+    public static int elitePlusBasicHp = 60;
     public static int bossHp = 520;
 
     public static int bossScoreThreshold = 400;

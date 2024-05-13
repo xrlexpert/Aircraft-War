@@ -1,7 +1,7 @@
 package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.CircleShootStrategy;
-import edu.hitsz.application.Game;
+import edu.hitsz.application.game.Game;
 import edu.hitsz.supply.BaseItem;
 import edu.hitsz.supply.factory.*;
 

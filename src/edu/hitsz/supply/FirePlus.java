@@ -3,12 +3,11 @@ package edu.hitsz.supply;
 import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.aircraft.strategy.CircleShootStrategy;
 import edu.hitsz.aircraft.strategy.DirectShootStrategy;
-import edu.hitsz.application.Game;
+import edu.hitsz.application.game.Game;
 import edu.hitsz.application.GameConfig;
 import edu.hitsz.application.Main;
 import edu.hitsz.thread.music.SupplyMusic;
 
-import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 

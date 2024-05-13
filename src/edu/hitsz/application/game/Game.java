@@ -1,5 +1,11 @@
-package edu.hitsz.application;
+package edu.hitsz.application.game;
 
+import edu.hitsz.application.GameConfig;
+import edu.hitsz.application.HeroController;
+import edu.hitsz.application.ImageManager;
+import edu.hitsz.application.Main;
+import edu.hitsz.bullet.EnemyBullet;
+import edu.hitsz.observer.Observer;
 import edu.hitsz.scores.ScoreDaoImpl;
 import edu.hitsz.aircraft.*;
 import edu.hitsz.aircraft.factory.*;
@@ -26,7 +32,7 @@ import java.util.concurrent.*;
  *
  * @author hitsz
  */
-public class Game extends JPanel {
+public abstract class Game extends JPanel {
 
     private int backGroundTop = 0;
     public static ScoreDaoImpl scoreDao = new ScoreDaoImpl();
@@ -146,6 +152,7 @@ public class Game extends JPanel {
                         factory = new ElitePlusEnemyFactory();
                         enemyAircraft = factory.createAircraft();
                     }
+
                     enemyAircrafts.add(enemyAircraft);
                 }
                 if(score / bossScoreThreshold >= cntOfMeetingBoss && !bossFlag){
@@ -309,7 +316,21 @@ public class Game extends JPanel {
         // Todo: 我方获得道具，道具生效
         for(BaseItem item : items){
             if(heroAircraft.crash(item)){
-                item.work(heroAircraft);
+                if(item instanceof Bomb bomb){
+                    for(AbstractEnemyAircraft enemyAircraft:enemyAircrafts){
+                        if(enemyAircraft instanceof Observer){
+                            bomb.registerObserver((Observer)enemyAircraft);
+                        }
+                    }
+                    for(BaseBullet enemyBullet:enemyBullets){
+                        bomb.registerObserver((EnemyBullet)enemyBullet);
+                    }
+                    bomb.work(heroAircraft);
+                }
+                else{
+                    item.work(heroAircraft);
+                }
+
                 item.vanish();
             }
         }

@@ -2,6 +2,7 @@ package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.DirectShootStrategy;
 import edu.hitsz.application.Main;
+import edu.hitsz.observer.Observer;
 import edu.hitsz.supply.BaseItem;
 import edu.hitsz.supply.factory.*;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class EliteEnemy extends AbstractEnemyAircraft {
+public class EliteEnemy extends AbstractEnemyAircraft implements Observer {
 
     @Override
     public List<BaseItem> createItems() {
@@ -63,4 +64,8 @@ public class EliteEnemy extends AbstractEnemyAircraft {
 
     }
 
+    @Override
+    public void update() {
+        vanish();
+    }
 }

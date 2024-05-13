@@ -2,6 +2,7 @@ package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.ScatterShootStrategy;
 import edu.hitsz.application.Main;
+import edu.hitsz.observer.Observer;
 import edu.hitsz.supply.BaseItem;
 import edu.hitsz.supply.factory.*;
 
@@ -9,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class ElitePlusEnemy extends AbstractEnemyAircraft {
+public class ElitePlusEnemy extends AbstractEnemyAircraft implements Observer {
     public ElitePlusEnemy(int locationX, int locationY, int speedX, int speedY, int hp){
         super(locationX,locationY,speedX,speedY,hp);
         this.shootNum = 3;
@@ -82,5 +83,10 @@ public class ElitePlusEnemy extends AbstractEnemyAircraft {
         if (locationY >= Main.WINDOW_HEIGHT ) {
             vanish();
         }
+    }
+
+    @Override
+    public void update() {
+        decreaseHp(30);
     }
 }

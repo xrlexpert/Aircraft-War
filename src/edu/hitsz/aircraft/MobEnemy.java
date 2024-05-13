@@ -3,6 +3,7 @@ package edu.hitsz.aircraft;
 import edu.hitsz.aircraft.strategy.DirectShootStrategy;
 import edu.hitsz.application.Main;
 import edu.hitsz.bullet.BaseBullet;
+import edu.hitsz.observer.Observer;
 import edu.hitsz.supply.BaseItem;
 
 import java.util.LinkedList;
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * @author hitsz
  */
-public class MobEnemy extends AbstractEnemyAircraft {
+public class MobEnemy extends AbstractEnemyAircraft implements Observer {
 
     public MobEnemy(int locationX, int locationY, int speedX, int speedY, int hp) {
         super(locationX, locationY, speedX, speedY, hp);
@@ -41,5 +42,10 @@ public class MobEnemy extends AbstractEnemyAircraft {
     @Override
     public List<BaseItem> createItems() {
         return new LinkedList<>();
+    }
+
+    @Override
+    public void update() {
+        vanish();
     }
 }

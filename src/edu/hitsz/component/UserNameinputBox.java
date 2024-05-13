@@ -1,7 +1,7 @@
 package edu.hitsz.component;
 
 import edu.hitsz.scores.Score;
-import edu.hitsz.application.Game;
+import edu.hitsz.application.game.Game;
 import edu.hitsz.application.Main;
 
 import javax.swing.*;

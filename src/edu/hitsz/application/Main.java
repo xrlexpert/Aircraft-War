@@ -1,5 +1,9 @@
 package edu.hitsz.application;
 
+import edu.hitsz.application.game.EasyGame;
+import edu.hitsz.application.game.Game;
+import edu.hitsz.application.game.HardGame;
+import edu.hitsz.application.game.MediumGame;
 import edu.hitsz.component.StartMenu;
 
 import javax.swing.*;
@@ -39,11 +43,20 @@ public class Main {
         FRAME.setVisible(true);
     }
     public static void startGame(){
-        Game game = new Game();
+        int mode = StartMenu.getGameMode();
+        Game game;
+        if(mode == 0){
+            game = new EasyGame();
+        }
+        else if(mode == 1){
+            game = new MediumGame();
+        }
+        else{
+            game = new HardGame();
+        }
         Main.CARD_PANEL.add(game,"Game");
         Main.CARD_LAYOUT.show(Main.CARD_PANEL,"Game");
         Main.FRAME.setVisible(true);
         game.action();
-
     }
 }

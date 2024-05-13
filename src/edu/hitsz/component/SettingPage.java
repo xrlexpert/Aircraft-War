@@ -1,6 +1,7 @@
 package edu.hitsz.component;
 
 import edu.hitsz.application.GameConfig;
+import edu.hitsz.application.ImageManager;
 import edu.hitsz.application.Main;
 
 import javax.swing.*;
@@ -17,22 +18,28 @@ public class SettingPage {
     private JComboBox soundSelection;
 
     private JLabel sound;
-    private JLabel gameMode;
+    private JLabel mode;
+    private static final String easyGameBackGround = "src/images/bg.jpg";
+    private static final String mediumGameBackGround = "src/images/bg2.jpg";
+    private static final String hardGameBackGround = "src/images/bg3.jpg";
 
     public SettingPage() {
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int gameMod = modeSelection.getSelectedIndex();
-                GameConfig.setGameMode(gameMod);
-                if(gameMod == 0){
+                int gameMode = modeSelection.getSelectedIndex();
+                StartMenu.setGameMode(gameMode);
+                if(gameMode == 0){
+                    ImageManager.setBACKGROUND_IMAGE(easyGameBackGround);
                     System.out.println("Game mode has been changed to SIMPLE mode.");
                 }
-                else if(gameMod == 1){
+                else if(gameMode == 1){
+                    ImageManager.setBACKGROUND_IMAGE(mediumGameBackGround);
                     System.out.println("Game mode has been changed to MEDIUM mode.");
 
                 }
-                else if(gameMod == 2){
+                else if(gameMode == 2){
+                    ImageManager.setBACKGROUND_IMAGE(hardGameBackGround);
                     System.out.println("Game mode has been changed to HARD mode.");
 
                 }

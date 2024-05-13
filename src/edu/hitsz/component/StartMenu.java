@@ -1,6 +1,5 @@
 package edu.hitsz.component;
 
-import edu.hitsz.application.Game;
 import edu.hitsz.application.Main;
 
 import javax.swing.*;
@@ -11,6 +10,15 @@ public class StartMenu {
     private JPanel settingsPanel;
     private JButton newGameButton;
     private JButton settingsButton;
+
+    public static void setGameMode(int gameMode) {
+        StartMenu.gameMode = gameMode;
+    }
+    public static int getGameMode() {
+        return StartMenu.gameMode;
+    }
+
+    private static int gameMode = 0;
 
     public StartMenu() {
         settingsButton.addActionListener(new ActionListener() {

@@ -16,6 +16,7 @@ import edu.hitsz.supply.FirePlus;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,10 +51,22 @@ public class ImageManager {
     public static BufferedImage FIRE_IMAGE;
     public static BufferedImage FIREPLUS_IMAGE;
 
+    public static void setBACKGROUND_IMAGE(String backgroundImagePath) {
+        try {
+            BACKGROUND_IMAGE = ImageIO.read(new FileInputStream(backgroundImagePath));
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+
+
     static {
         try {
-
-            BACKGROUND_IMAGE = ImageIO.read(new FileInputStream(GameConfig.BACKGROUND_IMAGE));
             HERO_IMAGE = ImageIO.read(new FileInputStream("src/images/hero.png"));
             MOB_ENEMY_IMAGE = ImageIO.read(new FileInputStream("src/images/mob.png"));
             ELITE_ENEMY_IMAGE = ImageIO.read(new FileInputStream("src/images/elite.png"));
