@@ -34,13 +34,22 @@ abstract class AbstractAircraft
     + getHp():int
     + {abstract} shoot():List<BaseBullet>
  }
+ AbstractAircraft <|-- AbstractEnemyAircraft
+ abstract class AbstractEnemyAircraft
+ {
+    + AbstractAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
+    + {abstract}createItems(): List<BaseItem>
+ }
+
+ interface Observer{
+     +{abstract} update():void
+ }
 
 
 class HeroAircraft {
-    - shootNum:int
-    - power:int
-    - direction:int
-    + HeroAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
+     -{static} heroAircraft:HeroAircraft
+     - HeroAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
+     +{static} getHeroAircraft():HeroAircraft
     + forward():void
     + shoot():List<BaseBullet>
     + increaseHp(int increase):void
@@ -52,15 +61,37 @@ class MobEnemy {
     + MobEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
     + forward():void
     + shoot():List<BaseBullet>
+    + update():void
 }
-AbstractAircraft <|-- MobEnemy
+AbstractEnemyAircraft <|-- MobEnemy
+Observer <|.. MobEnemy
 
 class EliteEnemy{
     + EliteEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
     + forward():void
     + shoot():List<BaseBullet>
+    + update():void
 }
-AbstractAircraft <|-- EliteEnemy
+AbstractEnemyAircraft <|-- EliteEnemy
+Observer <|.. EliteEnemy
+
+class ElitePlusEnemy{
+    + ElitePlusEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+    + forward():void
+    + shoot():List<BaseBullet>
+    + update():void
+}
+AbstractEnemyAircraft <|-- ElitePlusEnemy
+Observer <|.. ElitePlusEnemy
+
+class BossEnemy{
+    + ElitePlusEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+    + forward():void
+    + shoot():List<BaseBullet>
+    + update():void
+}
+AbstractEnemyAircraft <|-- BossEnemy
+Observer <|.. BossEnemy
 
 abstract class BaseBullet
 {
@@ -68,6 +99,7 @@ abstract class BaseBullet
     + BaseBullet(int locationX, int locationY, int speedX, int speedY, int power)
     + forward():void
 	+ getPower():int
+	+ createItems():List<BaseItem>
 }
 
 class HeroBullet {
@@ -78,13 +110,13 @@ class HeroBullet {
 class EnemyBullet {
     + EnemyBullet(int locationX, int locationY,
      int speedX, int speedY, int power)
+     + update():void
 }
 abstract class BaseItem{
     + {abstract}work(AbstractFlyingObject flyingObject):void;
 }
 
 class Blood{
-    + {static} Heal_HP:int
     + Blood(int locationX, int locationY, int speedX, int speedY);
     + work(AbstractFlyingObject flyingObject):void;
 }
@@ -96,10 +128,15 @@ class Fire{
     + Fire(int locationX, int locationY, int speedX, int speedY);
     + work(AbstractFlyingObject flyingObject):void;
 }
+class FirePlus{
+    + FirePlus(int locationX, int locationY, int speedX, int speedY);
+    + work(AbstractFlyingObject flyingObject):void;
+}
 
 
 BaseBullet <|-- HeroBullet
 BaseBullet <|-- EnemyBullet
+Observer <|.. EnemyBullet
 
 AbstractFlyingObject <|-- AbstractAircraft
 AbstractFlyingObject <|-- BaseBullet
@@ -108,6 +145,7 @@ AbstractFlyingObject <|-- BaseItem
 BaseItem <|-- Blood
 BaseItem <|-- Bomb
 BaseItem <|-- Fire
+BaseItem <|-- FirePlus
 
 
 @enduml

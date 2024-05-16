@@ -13,6 +13,12 @@ class MobEnemy{
 class EliteEnemy{
     + EliteEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
 }
+class ElitePlusEnemy{
+    + ElitePlusEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+}
+class BossEnemy{
+    + BossEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+}
 interface AircraftFactory{
     +{abstract} createAircraft(): AbstractAircraft
 }
@@ -22,10 +28,20 @@ class EliteEnemyFactory{
 class MobEnemyFactory{
     + createAircraft():AbstractAircraft
 }
+class ElitePlusEnemyFactory{
+    + createAircraft():AbstractAircraft
+}
+class BossEnemyFactory{
+    + createAircraft():AbstractAircraft
+}
+AbstractAircraft <-- AircraftFactory
 AbstractAircraft <|-- MobEnemy
 AbstractAircraft <|-- EliteEnemy
-AircraftFactory <|.. EliteEnemyFactory
-AircraftFactory <|.. MobEnemyFactory
-AbstractAircraft <.. AircraftFactory
+AbstractAircraft <|-- ElitePlusEnemy
+AbstractAircraft <|-- BossEnemy
 
+AircraftFactory <|.. MobEnemyFactory
+AircraftFactory <|.. EliteEnemyFactory
+AircraftFactory <|.. ElitePlusEnemyFactory
+AircraftFactory <|.. BossEnemyFactory
 @enduml
