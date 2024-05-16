@@ -4,7 +4,7 @@ import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.aircraft.strategy.DirectShootStrategy;
 import edu.hitsz.aircraft.strategy.ScatterShootStrategy;
 import edu.hitsz.application.game.Game;
-import edu.hitsz.application.GameConfig;
+import edu.hitsz.application.game.GameConfig;
 import edu.hitsz.application.Main;
 import edu.hitsz.thread.music.SupplyMusic;
 
@@ -31,7 +31,7 @@ public class Fire extends BaseItem {
         Game.executorService.schedule(new TimerTask() {
             @Override
             public void run() {
-                heroAircraft.setShootNum(GameConfig.heroBasicFire);
+                heroAircraft.setShootNum(1);
                 heroAircraft.setShootStrategy(new DirectShootStrategy());
             }
         },5, TimeUnit.SECONDS);

@@ -1,9 +1,6 @@
 package edu.hitsz.application;
 
-import edu.hitsz.application.game.EasyGame;
-import edu.hitsz.application.game.Game;
-import edu.hitsz.application.game.HardGame;
-import edu.hitsz.application.game.MediumGame;
+import edu.hitsz.application.game.*;
 import edu.hitsz.component.StartMenu;
 
 import javax.swing.*;
@@ -43,12 +40,11 @@ public class Main {
         FRAME.setVisible(true);
     }
     public static void startGame(){
-        int mode = StartMenu.getGameMode();
         Game game;
-        if(mode == 0){
+        if(GameConfig.gameMode == 0){
             game = new EasyGame();
         }
-        else if(mode == 1){
+        else if(GameConfig.gameMode == 1){
             game = new MediumGame();
         }
         else{

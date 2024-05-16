@@ -6,6 +6,7 @@ import edu.hitsz.aircraft.ElitePlusEnemy;
 import edu.hitsz.aircraft.BossEnemy;
 import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.aircraft.MobEnemy;
+import edu.hitsz.application.game.GameConfig;
 import edu.hitsz.bullet.EnemyBullet;
 import edu.hitsz.bullet.HeroBullet;
 import edu.hitsz.supply.Blood;
@@ -50,23 +51,25 @@ public class ImageManager {
     public static BufferedImage BOMB_IMAGE;
     public static BufferedImage FIRE_IMAGE;
     public static BufferedImage FIREPLUS_IMAGE;
+    public static final String easyGameBackGround = "src/images/bg.jpg";
+    public static final String mediumGameBackGround = "src/images/bg2.jpg";
+    public static final String hardGameBackGround = "src/images/bg3.jpg";
 
-    public static void setBACKGROUND_IMAGE(String backgroundImagePath) {
-        try {
-            BACKGROUND_IMAGE = ImageIO.read(new FileInputStream(backgroundImagePath));
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
 
-    }
 
 
 
     static {
         try {
+            if(GameConfig.gameMode == 0){
+                BACKGROUND_IMAGE = ImageIO.read(new FileInputStream(easyGameBackGround));
+            }
+            else if(GameConfig.gameMode == 1){
+                BACKGROUND_IMAGE = ImageIO.read(new FileInputStream(mediumGameBackGround));
+            }
+            else{
+                BACKGROUND_IMAGE = ImageIO.read(new FileInputStream(hardGameBackGround));
+            }
             HERO_IMAGE = ImageIO.read(new FileInputStream("src/images/hero.png"));
             MOB_ENEMY_IMAGE = ImageIO.read(new FileInputStream("src/images/mob.png"));
             ELITE_ENEMY_IMAGE = ImageIO.read(new FileInputStream("src/images/elite.png"));

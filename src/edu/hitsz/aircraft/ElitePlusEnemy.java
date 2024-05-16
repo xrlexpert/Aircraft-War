@@ -2,6 +2,7 @@ package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.ScatterShootStrategy;
 import edu.hitsz.application.Main;
+import edu.hitsz.application.game.Game;
 import edu.hitsz.observer.Observer;
 import edu.hitsz.supply.BaseItem;
 import edu.hitsz.supply.factory.*;
@@ -30,22 +31,22 @@ public class ElitePlusEnemy extends AbstractEnemyAircraft implements Observer {
         int randomNum = rand.nextInt(100);
         BaseItem item;
         ItemFactory factory;
-        if(randomNum < 25){
+        if(randomNum < 20){
             factory = new BloodFactory();
             item = factory.createItem(this.getLocationX(),this.getLocationY());
             items.add(item);
         }
-        else if(randomNum >= 25 && randomNum <50){
+        else if(randomNum >= 20 && randomNum <35){
             factory = new BombFactory();
             item = factory.createItem(this.getLocationX(),this.getLocationY());
             items.add(item);
         }
-        else if(randomNum >=50 && randomNum < 75) {
+        else if(randomNum >=35 && randomNum < 50) {
             factory = new FireFactory();
             item = factory.createItem(this.getLocationX(), this.getLocationY());
             items.add(item);
         }
-        else if(randomNum >=75 && randomNum < 90){
+        else if(randomNum >= 50 && randomNum < 60){
             factory = new FirePlusFactory();
             item = factory.createItem(this.getLocationX(), this.getLocationY());
             items.add(item);
@@ -88,5 +89,8 @@ public class ElitePlusEnemy extends AbstractEnemyAircraft implements Observer {
     @Override
     public void update() {
         decreaseHp(30);
+        if(notValid()){
+            Game.score += 10;
+        }
     }
 }

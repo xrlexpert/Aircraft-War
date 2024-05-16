@@ -1,7 +1,7 @@
 package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.DirectShootStrategy;
-import edu.hitsz.application.GameConfig;
+import edu.hitsz.application.game.GameConfig;
 import edu.hitsz.application.ImageManager;
 import edu.hitsz.application.Main;
 
@@ -18,6 +18,7 @@ public class HeroAircraft extends AbstractAircraft {
      * @param speedY 英雄机射出的子弹的基准速度（英雄机无特定速度）
      * @param hp    初始生命值
      */
+    public static int hero_basicHp = 2000;
     private volatile static HeroAircraft heroaircraft;
     public static HeroAircraft getHeroAircraft(){
         if(heroaircraft == null){
@@ -26,7 +27,7 @@ public class HeroAircraft extends AbstractAircraft {
                     heroaircraft =  new HeroAircraft(
                             Main.WINDOW_WIDTH / 2,
                             Main.WINDOW_HEIGHT - ImageManager.HERO_IMAGE.getHeight() ,
-                            0, 0, GameConfig.heroBasicHp);
+                            0, 0, hero_basicHp);
                 }
             }
         }
@@ -35,7 +36,7 @@ public class HeroAircraft extends AbstractAircraft {
     private HeroAircraft(int locationX, int locationY, int speedX, int speedY, int hp) {
         super(locationX, locationY, speedX, speedY, hp);
         this.shootStrategy = new DirectShootStrategy();
-        this.shootNum = GameConfig.heroBasicFire;
+        this.shootNum = 1;
         this.direction  = -1;
         this.power = 30;
     }

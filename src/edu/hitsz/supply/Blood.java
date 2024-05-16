@@ -2,11 +2,12 @@ package edu.hitsz.supply;
 
 import edu.hitsz.aircraft.HeroAircraft;
 import edu.hitsz.application.Main;
+import edu.hitsz.application.game.GameConfig;
 import edu.hitsz.thread.music.SupplyMusic;
 
 public class Blood extends BaseItem {
 
-        private static final int Heal_HP = 300;
+
         public Blood(int locationX, int locationY, int speedX, int speedY){
             super(locationX, locationY, speedX, speedY);
         }
@@ -22,7 +23,7 @@ public class Blood extends BaseItem {
 
     @Override
     public void work(HeroAircraft heroAircraft){
-        heroAircraft.increaseHp(Heal_HP);
+        heroAircraft.increaseHp(200);
         SupplyMusic.music(0);
     }
 }

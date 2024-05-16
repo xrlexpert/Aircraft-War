@@ -11,14 +11,6 @@ public class StartMenu {
     private JButton newGameButton;
     private JButton settingsButton;
 
-    public static void setGameMode(int gameMode) {
-        StartMenu.gameMode = gameMode;
-    }
-    public static int getGameMode() {
-        return StartMenu.gameMode;
-    }
-
-    private static int gameMode = 0;
 
     public StartMenu() {
         settingsButton.addActionListener(new ActionListener() {

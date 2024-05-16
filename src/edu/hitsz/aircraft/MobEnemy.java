@@ -2,6 +2,7 @@ package edu.hitsz.aircraft;
 
 import edu.hitsz.aircraft.strategy.DirectShootStrategy;
 import edu.hitsz.application.Main;
+import edu.hitsz.application.game.Game;
 import edu.hitsz.bullet.BaseBullet;
 import edu.hitsz.observer.Observer;
 import edu.hitsz.supply.BaseItem;
@@ -47,5 +48,6 @@ public class MobEnemy extends AbstractEnemyAircraft implements Observer {
     @Override
     public void update() {
         vanish();
+        Game.score += 10;
     }
 }

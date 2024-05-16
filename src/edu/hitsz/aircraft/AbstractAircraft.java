@@ -51,7 +51,6 @@ public abstract class AbstractAircraft extends AbstractFlyingObject {
     public int getShootNum(){return shootNum;}
     public int getPower(){return power;}
     public int getDirection(){return direction;}
-    public int getMaxHp(){return getMaxHp();}
     public List<BaseBullet> shoot(){return this.shootStrategy.shoot(this);}
     public void setShootNum(int shootNum){
         this.shootNum = shootNum;
