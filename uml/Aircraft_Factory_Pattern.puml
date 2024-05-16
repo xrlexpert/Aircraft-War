@@ -34,7 +34,7 @@ class ElitePlusEnemyFactory{
 class BossEnemyFactory{
     + createAircraft():AbstractAircraft
 }
-AbstractEnemyAircraft <--EnemyAircraftFactory
+AbstractEnemyAircraft <.. EnemyAircraftFactory
 AbstractEnemyAircraft <|-- MobEnemy
 AbstractEnemyAircraft <|-- EliteEnemy
 AbstractEnemyAircraft <|-- ElitePlusEnemy

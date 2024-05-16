@@ -11,12 +11,14 @@ public class HardGame extends Game {
         super();
         scoreDao = new ScoreDaoImpl("src/edu/hitsz/scores/hardScoreRecord.dat");
         timeInterval = 40;
-        cycleDuration = 720;
+        cycleDuration = 600;
         enemyMaxNumber = 8;
         bossScoreThreshold = 400;
         ratioOfEliteEnemy = 0.6;
-        BossEnemyFactory.setBossHpBossHp(720);
-        diffCycleDuration = 10000;
+        BossEnemyFactory.setMaxBossHp(2000);
+        diffCycleDuration = 6000;
+        minCycleTime = 200;
+        maxRatioOfEliteEnemy = 0.75;
     }
 
     @Override
@@ -41,11 +43,11 @@ public class HardGame extends Game {
         tag |= MobEnemyFactory.increaseRate();
         tag |= EliteEnemyFactory.increaseRate();
         tag |= ElitePlusEnemyFactory.increaseRate();
-        if(ratioOfEliteEnemy < GameConfig.maxRatioOfEliteEnemy){
+        if(ratioOfEliteEnemy < maxRatioOfEliteEnemy){
             ratioOfEliteEnemy += 0.02;
             tag = true;
         }
-        if(cycleDuration < GameConfig.minCycleTime){
+        if(cycleDuration < minCycleTime){
             cycleDuration -= 10;
             tag = true;
         }

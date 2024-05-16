@@ -9,12 +9,12 @@ import edu.hitsz.application.Main;
 import java.util.Random;
 
 public class BossEnemyFactory implements EnemyAircraftFactory{
-    public static int bossHp = 520;
-    private static int maxBossHp = 760;
+    public static int bossHp = 600;
+    private static int maxBossHp = 960;
     public static void increaseBossHp(){
         BossEnemyFactory.bossHp = Math.min(bossHp + 120,maxBossHp);
     }
-    public static void setBMaxBossHp(int bossHp){
+    public static void setMaxBossHp(int bossHp){
         BossEnemyFactory.maxBossHp = bossHp;
     }
     @Override

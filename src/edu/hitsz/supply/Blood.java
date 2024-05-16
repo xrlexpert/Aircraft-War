@@ -6,11 +6,9 @@ import edu.hitsz.application.game.GameConfig;
 import edu.hitsz.thread.music.SupplyMusic;
 
 public class Blood extends BaseItem {
-
-
-        public Blood(int locationX, int locationY, int speedX, int speedY){
-            super(locationX, locationY, speedX, speedY);
-        }
+    public Blood(int locationX, int locationY, int speedX, int speedY){
+        super(locationX, locationY, speedX, speedY);
+    }
 
     @Override
     public void forward() {
@@ -23,7 +21,7 @@ public class Blood extends BaseItem {
 
     @Override
     public void work(HeroAircraft heroAircraft){
-        heroAircraft.increaseHp(270);
+        heroAircraft.increaseHp(200);
         SupplyMusic.music(0);
     }
 }

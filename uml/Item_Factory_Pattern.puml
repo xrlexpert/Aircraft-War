@@ -1,6 +1,29 @@
 @startuml
 'https://plantuml.com/sequence-diagram
+abstract class AbstractFlyingObject
+{
+    # locationX:int
+    # locationY:int
+    # speedX:int
+    # speedY:int
+    # image:BufferedImage
+    # width:int
+    # height:int
+    # isValid:boolean
 
+    + AbstractFlyingObject(int locationX, int locationY, int speedX, int speedY)
+    + forward():void
+    + crash(AbstractFlyingObject flyingObject):boolean
+    + setLocation(double locationX, double locationY):void
+    + getLocationX():int
+    + getLocationY():int
+    + getSpeedY():int
+    + getImage():BufferedImage
+    + getWidth():int
+    + getHeight():int
+    + notValid():boolean
+    + vanish():void
+}
 abstract class BaseItem{
     + BaseItem(int locationX, int locationY, int speedX, int speedY)
     + {abstract} work(HeroAircraft):void
@@ -17,6 +40,9 @@ class BombFactory{
 class FireFactory{
     + createItem():BaseItem
 }
+class FirePlusFactory{
+    + createItem():BaseItem
+}
 class Blood{
     + work(HeroAircraft):void
 }
@@ -26,11 +52,18 @@ class Bomb{
 class Fire{
     + work(HeroAircraft):void
 }
+class FirePlus{
+    + work(HeroAircraft):void
+}
+
+AbstractFlyingObject <|-- BaseItem
 BaseItem <.. ItemFactory
 BaseItem <|-- Blood
 BaseItem <|-- Bomb
 BaseItem <|-- Fire
+BaseItem <|-- FirePlus
 ItemFactory <|.. BloodFactory
 ItemFactory <|.. BombFactory
 ItemFactory <|.. FireFactory
+ItemFactory <|.. FirePlusFactory
 @enduml
