@@ -18,6 +18,18 @@ public class HeroAircraft extends AbstractAircraft {
      * @param speedY 英雄机射出的子弹的基准速度（英雄机无特定速度）
      * @param hp    初始生命值
      */
+    public static int hero_basicHp = 2000;
+
+    public static void setHero_basicFire(int hero_basicFire) {
+        HeroAircraft.hero_basicFire = hero_basicFire;
+        if(hero_basicFire > heroaircraft.getShootNum()){
+            heroaircraft.setShootNum(hero_basicFire);
+        }
+
+    }
+
+    public static int hero_basicFire = 1;
+
 
     private volatile static HeroAircraft heroaircraft;
     public static HeroAircraft getHeroAircraft(){
@@ -27,7 +39,7 @@ public class HeroAircraft extends AbstractAircraft {
                     heroaircraft =  new HeroAircraft(
                             Main.WINDOW_WIDTH / 2,
                             Main.WINDOW_HEIGHT - ImageManager.HERO_IMAGE.getHeight() ,
-                            0, 0, GameConfig.hero_basicHp);
+                            0, 0, hero_basicHp);
                 }
             }
         }

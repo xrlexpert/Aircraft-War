@@ -9,6 +9,16 @@ import edu.hitsz.application.Main;
 import java.util.Random;
 
 public class ElitePlusEnemyFactory implements EnemyAircraftFactory  {
+    public static int elitePlusBasicHp = 60;
+    public static double rate = 1;
+    private static final double maxRate = 1.5;
+    public static boolean increaseRate(){
+        if(rate < maxRate){
+            rate += 0.1;
+            return true;
+        }
+        return false;
+    }
     @Override
     public AbstractEnemyAircraft createAircraft() {
         Random rand = new Random();
@@ -21,6 +31,6 @@ public class ElitePlusEnemyFactory implements EnemyAircraftFactory  {
                 (int) (Math.random() * Main.WINDOW_HEIGHT * 0.05),
                 f*2,
                 4,
-                GameConfig.elitePlusBasicHp);
+                (int)(elitePlusBasicHp*rate));
     }
 }

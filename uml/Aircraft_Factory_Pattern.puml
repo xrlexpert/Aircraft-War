@@ -1,5 +1,5 @@
 @startuml
-abstract class AbstractAircraft{
+abstract class AbstractEnemyAircraft{
     # maxHp:int
     # hp:int
     + AbstractAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
@@ -19,7 +19,7 @@ class ElitePlusEnemy{
 class BossEnemy{
     + BossEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
 }
-interface AircraftFactory{
+interface EnemyAircraftFactory{
     +{abstract} createAircraft(): AbstractAircraft
 }
 class EliteEnemyFactory{
@@ -34,14 +34,14 @@ class ElitePlusEnemyFactory{
 class BossEnemyFactory{
     + createAircraft():AbstractAircraft
 }
-AbstractAircraft <-- AircraftFactory
-AbstractAircraft <|-- MobEnemy
-AbstractAircraft <|-- EliteEnemy
-AbstractAircraft <|-- ElitePlusEnemy
-AbstractAircraft <|-- BossEnemy
+AbstractEnemyAircraft <--EnemyAircraftFactory
+AbstractEnemyAircraft <|-- MobEnemy
+AbstractEnemyAircraft <|-- EliteEnemy
+AbstractEnemyAircraft <|-- ElitePlusEnemy
+AbstractEnemyAircraft <|-- BossEnemy
 
-AircraftFactory <|.. MobEnemyFactory
-AircraftFactory <|.. EliteEnemyFactory
-AircraftFactory <|.. ElitePlusEnemyFactory
-AircraftFactory <|.. BossEnemyFactory
+EnemyAircraftFactory <|.. MobEnemyFactory
+EnemyAircraftFactory <|.. EliteEnemyFactory
+EnemyAircraftFactory <|.. ElitePlusEnemyFactory
+EnemyAircraftFactory <|.. BossEnemyFactory
 @enduml

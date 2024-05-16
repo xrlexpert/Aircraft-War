@@ -7,6 +7,17 @@ import edu.hitsz.application.ImageManager;
 import edu.hitsz.application.Main;
 
 public class MobEnemyFactory implements EnemyAircraftFactory{
+    public static int mobBasicHp = 30;
+    public static double rate = 1;
+    private static final double maxRate = 1.5;
+    public static boolean increaseRate(){
+        if(rate < maxRate){
+            rate += 0.1;
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public AbstractEnemyAircraft createAircraft() {
         return new MobEnemy(
@@ -14,7 +25,7 @@ public class MobEnemyFactory implements EnemyAircraftFactory{
                 (int) (Math.random() * Main.WINDOW_HEIGHT * 0.05),
                 0,
                 4,
-                GameConfig.mobBasicHp
+                (int)(mobBasicHp*rate)
         );
     }
 }

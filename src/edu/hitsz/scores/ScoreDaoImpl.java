@@ -6,15 +6,18 @@ import java.util.Collections;
 import java.util.List;
 
 public class ScoreDaoImpl implements  ScoreDao{
+    private String dataPath;
     private static List<Score> ScoreList = new ArrayList<Score>();
-    public ScoreDaoImpl(){
+
+    public ScoreDaoImpl(String dataPath){
+        this.dataPath = dataPath;
         readObject();
     }
 
 
 
     public void readObject(){
-        File f =  new File("./src/edu/hitsz/scores/ScoreRecord.dat");
+        File f =  new File(dataPath);
         try{
             FileInputStream in = new FileInputStream(f);
             ObjectInputStream objIn=new ObjectInputStream(in);
@@ -30,7 +33,7 @@ public class ScoreDaoImpl implements  ScoreDao{
 
     }
     public void writeObject(){
-        File f =  new File("./src/edu/hitsz/scores/ScoreRecord.dat");
+        File f =  new File(dataPath);
         try{
             FileOutputStream out = new FileOutputStream(f);
             ObjectOutputStream objOut  = new ObjectOutputStream(out);

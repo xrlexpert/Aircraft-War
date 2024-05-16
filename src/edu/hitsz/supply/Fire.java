@@ -31,9 +31,9 @@ public class Fire extends BaseItem {
         Game.executorService.schedule(new TimerTask() {
             @Override
             public void run() {
-                heroAircraft.setShootNum(1);
+                heroAircraft.setShootNum(HeroAircraft.hero_basicFire);
                 heroAircraft.setShootStrategy(new DirectShootStrategy());
             }
-        },5, TimeUnit.SECONDS);
+        },8, TimeUnit.SECONDS);
     }
 }

@@ -23,7 +23,7 @@ public class Blood extends BaseItem {
 
     @Override
     public void work(HeroAircraft heroAircraft){
-        heroAircraft.increaseHp(200);
+        heroAircraft.increaseHp(270);
         SupplyMusic.music(0);
     }
 }

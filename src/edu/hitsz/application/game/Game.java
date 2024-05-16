@@ -34,7 +34,7 @@ import java.util.concurrent.*;
 public abstract class Game extends JPanel {
 
     private int backGroundTop = 0;
-    public static ScoreDaoImpl scoreDao = new ScoreDaoImpl();
+    public static ScoreDaoImpl scoreDao;
     /**
      * 游戏结束标志
      */
@@ -166,14 +166,12 @@ public abstract class Game extends JPanel {
          * 本次任务执行完成后，需要延迟设定的延迟时间，才会执行新的任务
          */
         executorService.scheduleWithFixedDelay(task, timeInterval, timeInterval, TimeUnit.MILLISECONDS);
+        
+        BackGroundMusicThread backGroundMusicThread = new BackGroundMusicThread();
+        BossMusicThread bossMusicThread = new BossMusicThread();
+        executorService.execute(backGroundMusicThread);
+        executorService.execute(bossMusicThread);
 
-        //如果音效打开则开启音乐相关线程
-        if(GameConfig.musicFlag){
-            BackGroundMusicThread backGroundMusicThread = new BackGroundMusicThread();
-            BossMusicThread bossMusicThread = new BossMusicThread();
-            executorService.execute(backGroundMusicThread);
-            executorService.execute(bossMusicThread);
-        }
 
     }
 

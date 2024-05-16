@@ -9,6 +9,14 @@ import edu.hitsz.application.Main;
 import java.util.Random;
 
 public class BossEnemyFactory implements EnemyAircraftFactory{
+    public static int bossHp = 520;
+    private static int maxBossHp = 760;
+    public static void increaseBossHp(){
+        BossEnemyFactory.bossHp = Math.min(bossHp + 120,maxBossHp);
+    }
+    public static void setBMaxBossHp(int bossHp){
+        BossEnemyFactory.maxBossHp = bossHp;
+    }
     @Override
     public AbstractEnemyAircraft createAircraft() {
         Random rand = new Random();
@@ -21,6 +29,6 @@ public class BossEnemyFactory implements EnemyAircraftFactory{
                 (int) (Main.WINDOW_HEIGHT * 0.15),
                 f*2,
                 0,
-                GameConfig.bossHp);
+                bossHp);
     }
 }
