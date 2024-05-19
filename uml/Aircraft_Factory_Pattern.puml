@@ -1,6 +1,5 @@
 @startuml
-abstract class AbstractEnemyAircraft
- {
+abstract class AbstractEnemyAircraft{
     + AbstractAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
     + {abstract}createItems(): List<BaseItem>
  }
@@ -21,7 +20,7 @@ class BossEnemy{
     + createItems(): List<BaseItem>
 }
 interface EnemyAircraftFactory{
-    +{abstract} createEnemyAircraft(): AbstractEnemyAircraft
+    +{abstract} createAircraft(): AbstractAircraft
 }
 class EliteEnemyFactory{
     + createAircraft():AbstractAircraft
@@ -35,7 +34,7 @@ class ElitePlusEnemyFactory{
 class BossEnemyFactory{
     + createAircraft():AbstractAircraft
 }
-AbstractEnemyAircraft <-- EnemyAircraftFactory
+AbstractEnemyAircraft <.. EnemyAircraftFactory
 AbstractEnemyAircraft <|-- MobEnemy
 AbstractEnemyAircraft <|-- EliteEnemy
 AbstractEnemyAircraft <|-- ElitePlusEnemy

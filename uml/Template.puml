@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Game{
+    + {static} scoreDao:ScoreDaoImpl
+    # timeInterval:int
+    # ......
+
+    + Game()
+    + action():void
+    - timeCountAndNewCycleJudge():boolean
+    - diffTimeCountAndChangeJudge():boolean
+    - diffTimeCountAndChangeJudge():boolean
+    - createEnemyAircraft():void
+    # {abstract} createBossAircraft():void
+    # {abstract} increaseDifficulty():void
+    - shootAction():void
+    - bulletsMoveAction():void
+    - enemyMoveAction():void
+    - aircraftsMoveAction():void
+    - crashCheckAction():void
+    - checkIfGameOver():void
+    - postProcessAction()......
+}
+
+class EasyGame{
+    + EasyGame()
+    # createBossAircraft():void
+    # increaseDifficulty():void
+}
+
+class MediumGame{
+    + MediumGame()
+    # createBossAircraft():void
+    # increaseDifficulty():void
+}
+
+class HardGame{
+    + HardGame()
+    # createBossAircraft():void
+    # increaseDifficulty():void
+}
+
+
+Game <|-- EasyGame
+Game <|-- MediumGame
+Game <|-- HardGame
+
+@enduml

@@ -34,7 +34,7 @@ import java.util.concurrent.*;
 public abstract class Game extends JPanel {
 
     private int backGroundTop = 0;
-    public static ScoreDaoImpl scoreDao = new ScoreDaoImpl();
+    public static ScoreDaoImpl scoreDao;
     /**
      * 游戏结束标志
      */
@@ -79,6 +79,7 @@ public abstract class Game extends JPanel {
      * 指示子弹的发射、敌机的产生频率
      */
     protected int cycleDuration = 600;
+    protected int minCycleTime = 450;
     protected int cycleTime = 0;
 
     /**
@@ -89,6 +90,7 @@ public abstract class Game extends JPanel {
     protected int diffCycleTime = 0;
     protected int bossScoreThreshold = 300;
     protected double ratioOfEliteEnemy = 0.75;
+    protected double maxRatioOfEliteEnemy = 0.8;
     protected int cntOfMeetingBoss = 0;
 
 
@@ -122,18 +124,14 @@ public abstract class Game extends JPanel {
     public void action() {
         // 定时任务：绘制、对象产生、碰撞判定、击毁及结束判定
         Runnable task = () -> {
-
             time += timeInterval;
-
             // 周期性执行（控制频率）
             if (timeCountAndNewCycleJudge()) {
                 System.out.println(time);
                  //新敌机产生
                 createEnemyAircraft();
-
                 //产生boss机
                 createBossAircraft();
-
                 // 飞机射出子弹
                 shootAction();
             }
@@ -141,22 +139,16 @@ public abstract class Game extends JPanel {
             if(diffTimeCountAndChangeJudge()){
                 increaseDifficulty();
             }
-
             // 子弹移动
             bulletsMoveAction();
-
             // 飞机移动
             aircraftsMoveAction();
-
             // 撞击检测
             crashCheckAction();
-
             // 后处理
             postProcessAction();
-
             //每个时刻重绘界面
             repaint();
-
             // 游戏结束检查英雄机是否存活
            checkIfGameOver();
         };
@@ -166,14 +158,12 @@ public abstract class Game extends JPanel {
          * 本次任务执行完成后，需要延迟设定的延迟时间，才会执行新的任务
          */
         executorService.scheduleWithFixedDelay(task, timeInterval, timeInterval, TimeUnit.MILLISECONDS);
+        
+        BackGroundMusicThread backGroundMusicThread = new BackGroundMusicThread();
+        BossMusicThread bossMusicThread = new BossMusicThread();
+        executorService.execute(backGroundMusicThread);
+        executorService.execute(bossMusicThread);
 
-        //如果音效打开则开启音乐相关线程
-        if(GameConfig.musicFlag){
-            BackGroundMusicThread backGroundMusicThread = new BackGroundMusicThread();
-            BossMusicThread bossMusicThread = new BossMusicThread();
-            executorService.execute(backGroundMusicThread);
-            executorService.execute(bossMusicThread);
-        }
 
     }
 
@@ -190,7 +180,7 @@ public abstract class Game extends JPanel {
         } else return false;
 
     }
-    protected boolean diffTimeCountAndChangeJudge() {
+    private boolean diffTimeCountAndChangeJudge() {
         diffCycleTime += timeInterval;
         if(diffCycleTime >= diffCycleDuration && diffCycleTime - timeInterval < diffCycleTime){
             diffCycleTime %= diffCycleDuration;
@@ -340,7 +330,7 @@ public abstract class Game extends JPanel {
 
     }
     //检查是否游戏结束
-    public void checkIfGameOver(){
+    private void checkIfGameOver(){
         if (heroAircraft.getHp() <= 0){
             Main.currentScore = score;
             gameOverFlag = true;

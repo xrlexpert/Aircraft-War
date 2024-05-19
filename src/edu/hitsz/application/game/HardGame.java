@@ -1,19 +1,24 @@
 package edu.hitsz.application.game;
 
 import edu.hitsz.aircraft.AbstractEnemyAircraft;
-import edu.hitsz.aircraft.factory.BossEnemyFactory;
-import edu.hitsz.aircraft.factory.EnemyAircraftFactory;
+import edu.hitsz.aircraft.ElitePlusEnemy;
+import edu.hitsz.aircraft.HeroAircraft;
+import edu.hitsz.aircraft.factory.*;
+import edu.hitsz.scores.ScoreDaoImpl;
 
 public class HardGame extends Game {
     public HardGame(){
         super();
+        scoreDao = new ScoreDaoImpl("src/edu/hitsz/scores/hardScoreRecord.dat");
         timeInterval = 40;
-        cycleDuration = 720;
+        cycleDuration = 600;
         enemyMaxNumber = 8;
         bossScoreThreshold = 400;
         ratioOfEliteEnemy = 0.6;
-        GameConfig.bossHp = 720;
-        diffCycleDuration = 300000;
+        BossEnemyFactory.setMaxBossHp(2000);
+        diffCycleDuration = 6000;
+        minCycleTime = 200;
+        maxRatioOfEliteEnemy = 0.75;
     }
 
     @Override
@@ -27,7 +32,7 @@ public class HardGame extends Game {
             cntOfMeetingBoss += 1;
             bossFlag = true;
             //困难模式增加boss机血量
-            GameConfig.bossHp += 210;
+            BossEnemyFactory.increaseBossHp();
         }
 
     }
@@ -35,11 +40,14 @@ public class HardGame extends Game {
     @Override
     protected void increaseDifficulty() {
         boolean tag = false;
-        if(ratioOfEliteEnemy < GameConfig.maxRatioOfEliteEnemy){
+        tag |= MobEnemyFactory.increaseRate();
+        tag |= EliteEnemyFactory.increaseRate();
+        tag |= ElitePlusEnemyFactory.increaseRate();
+        if(ratioOfEliteEnemy < maxRatioOfEliteEnemy){
             ratioOfEliteEnemy += 0.02;
             tag = true;
         }
-        if(cycleDuration < GameConfig.minCycleTime){
+        if(cycleDuration < minCycleTime){
             cycleDuration -= 10;
             tag = true;
         }
@@ -47,6 +55,7 @@ public class HardGame extends Game {
             System.out.printf("已提高难度，目前精英机出现概率为 %f, 敌机产生周期：%d \n",ratioOfEliteEnemy,cycleDuration);
         }
         else{
+            HeroAircraft.setHero_basicFire(2);
             System.out.printf("已达最高难度\n");
         }
 

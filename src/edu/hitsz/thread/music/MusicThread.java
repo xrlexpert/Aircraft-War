@@ -1,5 +1,7 @@
 package edu.hitsz.thread.music;
 
+import edu.hitsz.application.game.GameConfig;
+
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.File;
@@ -108,6 +110,7 @@ public class MusicThread implements Runnable {
 
     @Override
     public void run() {
+        if(!GameConfig.musicFlag) return;
         InputStream stream = new ByteArrayInputStream(samples);
         play(stream);
         if(loopFlag){

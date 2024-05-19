@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Bomb extends BaseItem  {
-    private static final List<Observer> observers = new LinkedList<>();
+    private final List<Observer> observers = new LinkedList<>();
     public Bomb(int locationX, int locationY, int speedX, int speedY){
         super(locationX, locationY, speedX, speedY);
     }

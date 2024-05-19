@@ -3,10 +3,12 @@ package edu.hitsz.application.game;
 import edu.hitsz.aircraft.AbstractEnemyAircraft;
 import edu.hitsz.aircraft.factory.BossEnemyFactory;
 import edu.hitsz.aircraft.factory.EnemyAircraftFactory;
+import edu.hitsz.scores.ScoreDaoImpl;
 
 public class EasyGame extends Game {
     public EasyGame(){
         super();
+        scoreDao = new ScoreDaoImpl("src/edu/hitsz/scores/easyScoreRecord.dat");
         timeInterval = 40;
         cycleDuration = 800;
         enemyMaxNumber = 5;

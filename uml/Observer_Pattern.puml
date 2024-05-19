@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Bomb{
+    - List<Observer> observers
+    + Bomb(int locationX, int locationY, int speedX, int speedY)
+    + registerObserver(Observer observer):void
+    + removeObserver(Observer observer):void
+    + notifyObservers():void
+}
+interface Observer{
+    + {abstract} update():void
+}
+class MobEnemy{
+    + update():void
+}
+class EliteEnemy{
+    + update():void
+}
+class ElitePlusEnemy{
+    + update():void
+}
+class EnemyBullet{
+    + update():void
+}
+Observer <--o Bomb
+Observer <|-- MobEnemy
+Observer <|-- EliteEnemy
+Observer <|-- ElitePlusEnemy
+Observer <|-- EnemyBullet
+@enduml
