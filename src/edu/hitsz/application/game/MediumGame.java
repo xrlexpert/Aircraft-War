@@ -12,7 +12,7 @@ public class MediumGame extends Game{
         scoreDao = new ScoreDaoImpl("src/edu/hitsz/scores/mediumScoreRecord.dat");
         timeInterval = 40;
         cycleDuration = 720;
-        enemyMaxNumber = 7;
+        enemyMaxNumber = 6;
         bossScoreThreshold = 500;
         diffCycleDuration = 10000;
         ratioOfEliteEnemy = 0.5;
@@ -39,7 +39,7 @@ public class MediumGame extends Game{
             ratioOfEliteEnemy += 0.02;
             tag = true;
         }
-        if(cycleDuration < minCycleTime){
+        if(cycleDuration > minCycleTime){
             cycleDuration -= 10;
             tag = true;
         }

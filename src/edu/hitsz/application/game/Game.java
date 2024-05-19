@@ -40,6 +40,7 @@ public abstract class Game extends JPanel {
      */
     public  static boolean gameOverFlag = false;
     public static boolean bossFlag = false;
+    public static int FireTime = 0;
 
 
     /**
@@ -198,7 +199,7 @@ public abstract class Game extends JPanel {
                 factory = new MobEnemyFactory();
                 enemyAircraft = factory.createAircraft();
             }
-            else if(randomNum >= 100 * ratioOfEliteEnemy * 1/5 && randomNum < 100 * ratioOfEliteEnemy ){
+            else if(randomNum >= 100 * ratioOfEliteEnemy * 1/8 && randomNum < 100 * ratioOfEliteEnemy ){
                 factory = new EliteEnemyFactory();
                 enemyAircraft = factory.createAircraft();
             }

@@ -12,7 +12,7 @@ public class HardGame extends Game {
         scoreDao = new ScoreDaoImpl("src/edu/hitsz/scores/hardScoreRecord.dat");
         timeInterval = 40;
         cycleDuration = 600;
-        enemyMaxNumber = 8;
+        enemyMaxNumber = 7;
         bossScoreThreshold = 400;
         ratioOfEliteEnemy = 0.6;
         BossEnemyFactory.setMaxBossHp(2000);
@@ -47,12 +47,12 @@ public class HardGame extends Game {
             ratioOfEliteEnemy += 0.02;
             tag = true;
         }
-        if(cycleDuration < minCycleTime){
+        if(cycleDuration > minCycleTime){
             cycleDuration -= 10;
             tag = true;
         }
         if(tag) {
-            System.out.printf("已提高难度，目前精英机出现概率为 %f, 敌机产生周期：%d \n",ratioOfEliteEnemy,cycleDuration);
+            System.out.printf("已提高难度，目前精英机出现概率为 %f, 敌机产生周期：%d 敌机属性增益 %f\n",ratioOfEliteEnemy,cycleDuration,MobEnemyFactory.rate);
         }
         else{
             HeroAircraft.setHero_basicFire(2);

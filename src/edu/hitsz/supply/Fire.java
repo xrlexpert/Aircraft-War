@@ -28,12 +28,14 @@ public class Fire extends BaseItem {
         heroAircraft.setShootNum(Math.min(5,heroAircraft.getShootNum() + 2));
         heroAircraft.setShootStrategy(new ScatterShootStrategy());
         SupplyMusic.music(0);
+        Game.FireTime += 8;
         Game.executorService.schedule(new TimerTask() {
             @Override
             public void run() {
                 heroAircraft.setShootNum(HeroAircraft.hero_basicFire);
                 heroAircraft.setShootStrategy(new DirectShootStrategy());
             }
-        },8, TimeUnit.SECONDS);
+        },Game.FireTime, TimeUnit.SECONDS);
+        Game.FireTime = 0;
     }
 }

@@ -29,13 +29,16 @@ public class FirePlus extends BaseItem {
         heroAircraft.setShootNum(Math.min(20,heroAircraft.getShootNum() + 8));
         heroAircraft.setShootStrategy(new CircleShootStrategy());
         SupplyMusic.music(0);
+        Game.FireTime += 8;
+        System.out.println();
         Game.executorService.schedule(new TimerTask() {
             @Override
             public void run() {
                 heroAircraft.setShootNum(HeroAircraft.hero_basicFire);
                 heroAircraft.setShootStrategy(new DirectShootStrategy());
             }
-        },12, TimeUnit.SECONDS);
+        },Game.FireTime, TimeUnit.SECONDS);
+        Game.FireTime = 0;
 
     }
 }
