@@ -1,26 +1,27 @@
 @startuml
-abstract class AbstractAircraft{
-    # maxHp:int
-    # hp:int
+abstract class AbstractEnemyAircraft
+ {
     + AbstractAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
-    + decreaseHp(int decrease):void
-    + getHp():int
-    + {abstract} shoot():List<BaseBullet>
-}
+    + {abstract}createItems(): List<BaseItem>
+ }
 class MobEnemy{
     + MobEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+    + createItems(): List<BaseItem>
 }
 class EliteEnemy{
     + EliteEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+    + createItems(): List<BaseItem>
 }
 class ElitePlusEnemy{
     + ElitePlusEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+    + createItems(): List<BaseItem>
 }
 class BossEnemy{
     + BossEnemy(int locationX, int locationY, int speedX, int speedY, int hp)
+    + createItems(): List<BaseItem>
 }
-interface AircraftFactory{
-    +{abstract} createAircraft(): AbstractAircraft
+interface EnemyAircraftFactory{
+    +{abstract} createEnemyAircraft(): AbstractEnemyAircraft
 }
 class EliteEnemyFactory{
     + createAircraft():AbstractAircraft
@@ -34,14 +35,14 @@ class ElitePlusEnemyFactory{
 class BossEnemyFactory{
     + createAircraft():AbstractAircraft
 }
-AbstractAircraft <-- AircraftFactory
-AbstractAircraft <|-- MobEnemy
-AbstractAircraft <|-- EliteEnemy
-AbstractAircraft <|-- ElitePlusEnemy
-AbstractAircraft <|-- BossEnemy
+AbstractEnemyAircraft <-- EnemyAircraftFactory
+AbstractEnemyAircraft <|-- MobEnemy
+AbstractEnemyAircraft <|-- EliteEnemy
+AbstractEnemyAircraft <|-- ElitePlusEnemy
+AbstractEnemyAircraft <|-- BossEnemy
 
-AircraftFactory <|.. MobEnemyFactory
-AircraftFactory <|.. EliteEnemyFactory
-AircraftFactory <|.. ElitePlusEnemyFactory
-AircraftFactory <|.. BossEnemyFactory
+EnemyAircraftFactory <|.. MobEnemyFactory
+EnemyAircraftFactory <|.. EliteEnemyFactory
+EnemyAircraftFactory <|.. ElitePlusEnemyFactory
+EnemyAircraftFactory <|.. BossEnemyFactory
 @enduml

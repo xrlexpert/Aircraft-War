@@ -62,6 +62,7 @@ class MobEnemy {
     + forward():void
     + shoot():List<BaseBullet>
     + update():void
+    + createItems(): List<BaseItem>
 }
 AbstractEnemyAircraft <|-- MobEnemy
 Observer <|.. MobEnemy
@@ -71,6 +72,7 @@ class EliteEnemy{
     + forward():void
     + shoot():List<BaseBullet>
     + update():void
+    + createItems(): List<BaseItem>
 }
 AbstractEnemyAircraft <|-- EliteEnemy
 Observer <|.. EliteEnemy
@@ -80,6 +82,7 @@ class ElitePlusEnemy{
     + forward():void
     + shoot():List<BaseBullet>
     + update():void
+    + createItems(): List<BaseItem>
 }
 AbstractEnemyAircraft <|-- ElitePlusEnemy
 Observer <|.. ElitePlusEnemy
@@ -89,6 +92,7 @@ class BossEnemy{
     + forward():void
     + shoot():List<BaseBullet>
     + update():void
+    + createItems(): List<BaseItem>
 }
 AbstractEnemyAircraft <|-- BossEnemy
 Observer <|.. BossEnemy
