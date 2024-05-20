@@ -16,12 +16,12 @@ public class EasyGame extends Game {
         ratioOfEliteEnemy = 0.5;
 
     }
-
+    //简单模式无Boss机
     @Override
     protected void createBossAircraft() {
     }
 
-    //简单模式不随时间推移变难
+    // 简单模式不随时间推移变难
     @Override
     protected void increaseDifficulty() {}
 }

@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 
     public class GameConfig {
 
-
+    /** 游戏基础设置 */
     public static boolean musicFlag = true;
     public  static int gameMode = 0;
     public static void setGameMode(int mode){

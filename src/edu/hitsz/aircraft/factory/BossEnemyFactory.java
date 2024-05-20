@@ -11,6 +11,7 @@ import java.util.Random;
 public class BossEnemyFactory implements EnemyAircraftFactory{
     public static int bossHp = 600;
     private static int maxBossHp = 960;
+    /** Boss机在困难模式随出现次数而血量增加 */
     public static void increaseBossHp(){
         BossEnemyFactory.bossHp = Math.min(bossHp + 120,maxBossHp);
     }

@@ -39,6 +39,8 @@ public class Main {
         CARD_LAYOUT.show(CARD_PANEL,"StartMenu");
         FRAME.setVisible(true);
     }
+
+    // 游戏开始的入口,当游戏开始菜单选择new game 则开始游戏
     public static void startGame(){
         Game game;
         if(GameConfig.gameMode == 0){

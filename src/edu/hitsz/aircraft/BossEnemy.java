@@ -40,24 +40,23 @@ public class BossEnemy extends AbstractEnemyAircraft {
             ItemFactory factory;
             if(randomNum < 20){
                 factory = new BloodFactory();
-                item = factory.createItem(this.getLocationX(),this.getLocationY());
+                item = factory.createItem(this.getLocationX() + i*50,this.getLocationY());
                 items.add(item);
             }
             else if(randomNum >= 20 && randomNum <35){
                 factory = new BombFactory();
-                item = factory.createItem(this.getLocationX(),this.getLocationY());
+                item = factory.createItem(this.getLocationX() + i*50,this.getLocationY());
                 items.add(item);
             }
             else if(randomNum >=35 && randomNum < 50) {
                 factory = new FireFactory();
-                item = factory.createItem(this.getLocationX(), this.getLocationY());
+                item = factory.createItem(this.getLocationX()+ i*50, this.getLocationY());
                 items.add(item);
             }
             else if(randomNum >= 50 && randomNum < 60){
                 factory = new FirePlusFactory();
-                item = factory.createItem(this.getLocationX(), this.getLocationY());
+                item = factory.createItem(this.getLocationX() + i*50, this.getLocationY());
                 items.add(item);
-
             }
         }
         return items;

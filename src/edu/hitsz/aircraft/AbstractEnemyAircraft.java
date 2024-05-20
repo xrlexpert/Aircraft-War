@@ -9,6 +9,6 @@ public abstract class AbstractEnemyAircraft extends AbstractAircraft {
         super(locationX, locationY, speedX, speedY, hp);
     }
 
-
+    /** 敌机坠落随机掉落道具 */
     public abstract List<BaseItem> createItems();
 }

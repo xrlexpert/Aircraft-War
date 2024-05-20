@@ -10,6 +10,7 @@ public class MobEnemyFactory implements EnemyAircraftFactory{
     public static int mobBasicHp = 30;
     public static double rate = 1;
     private static final double maxRate = 1.5;
+    /** 敌机属性随时间推移增加 */
     public static boolean increaseRate(){
         if(rate < maxRate){
             rate += 0.1;
