@@ -23,8 +23,8 @@ class EnemyBullet{
     + update():void
 }
 Observer <--o Bomb
-Observer <|-- MobEnemy
-Observer <|-- EliteEnemy
-Observer <|-- ElitePlusEnemy
-Observer <|-- EnemyBullet
+Observer <|.. MobEnemy
+Observer <|.. EliteEnemy
+Observer <|.. ElitePlusEnemy
+Observer <|.. EnemyBullet
 @enduml
